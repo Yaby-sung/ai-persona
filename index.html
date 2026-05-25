@@ -1,0 +1,2370 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#F4EFE3" />
+<title>小鹿 AI 商業落地實驗室 ｜ 讓你的專業，被世界重新看見</title>
+<meta name="description" content="小鹿 AI 商業落地實驗室 — 用 AI、品牌策略與視覺導演，把你的價值翻譯成市場一秒就懂的語言。讓相信你，變成一件自然的事。" />
+<meta property="og:title" content="小鹿 AI 商業落地實驗室" />
+<meta property="og:description" content="你很專業，但市場還沒真正看見你。" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AI PERSONA — v2
+   80% 精品編輯感 ／ 20% AI 微光未來感
+   ============================================================ */
+
+:root{
+  /* 紙感主色 */
+  --paper:#F4EFE3;        /* 奶油白 */
+  --paper-2:#EDE6D5;      /* 暖米 */
+  --paper-3:#E4DCC7;      /* 米霧 */
+  --mist:#D8D0BD;         /* 柔霧灰 */
+
+  /* 墨色 */
+  --ink:#1C1A16;          /* 主墨色 */
+  --ink-2:#4A453C;        /* 次文字 */
+  --ink-3:#7F7869;        /* 輔助 */
+  --ink-4:#A89F8C;        /* 弱化 */
+
+  /* 暖金 */
+  --gold:#B89968;         /* 主暖金 */
+  --gold-deep:#8F7547;    /* 深金 */
+  --gold-soft:#D6BE94;    /* 淺金 */
+  --gold-line:rgba(184,153,104,.32);
+
+  /* 暗場（20% AI 未來感） */
+  --space:#0E0D0A;
+  --space-2:#181612;
+  --moonlight:#E8DFC9;
+  --moon-2:#B8AE96;
+
+  /* 動態 */
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+
+  /* 尺度 */
+  --max-w:1240px;
+  --max-w-narrow:980px;
+  --max-w-reading:680px;
+  --gutter:clamp(22px,5.4vw,56px);
+  --radius:6px;
+  --radius-lg:12px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Noto Sans TC','Inter',system-ui,-apple-system,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  font-weight:300;
+  line-height:1.8;
+  letter-spacing:.02em;
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* 紙感紋理 */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:
+    radial-gradient(900px 600px at 12% -5%, rgba(184,153,104,.10), transparent 65%),
+    radial-gradient(700px 500px at 100% 30%, rgba(184,153,104,.07), transparent 65%);
+  opacity:.9;
+}
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background-image:
+    radial-gradient(rgba(140,120,80,.04) 1px, transparent 1px);
+  background-size:3px 3px;
+  opacity:.5;
+  mix-blend-mode:multiply;
+}
+
+/* ============= 排版 ============= */
+.serif{font-family:'Noto Serif TC','Cormorant Garamond',serif;font-weight:300}
+.italic{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400}
+.label{
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  font-size:.7rem;font-weight:500;
+  letter-spacing:.35em;text-transform:uppercase;
+  color:var(--gold-deep);
+}
+.label-soft{color:var(--ink-3)}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:1em;
+  font-family:'Inter','Noto Sans TC',sans-serif;
+  font-size:.7rem;font-weight:500;
+  letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold-deep);
+}
+.eyebrow::before{content:'';display:inline-block;width:36px;height:1px;background:var(--gold)}
+.eyebrow.center{justify-content:center}
+
+.h-display{
+  font-family:'Noto Serif TC','Cormorant Garamond',serif;
+  font-weight:300;
+  color:var(--ink);
+  line-height:1.2;
+  letter-spacing:-.008em;
+}
+.h-display em{
+  font-style:italic;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+  color:var(--gold-deep);
+}
+
+.lead{
+  color:var(--ink-2);
+  font-size:clamp(.98rem,1.5vw,1.08rem);
+  line-height:1.95;
+  font-weight:300;
+}
+
+.muted{color:var(--ink-3)}
+
+/* 容器 */
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter)}
+.wrap-narrow{max-width:var(--max-w-narrow);margin:0 auto;padding:0 var(--gutter)}
+.wrap-reading{max-width:var(--max-w-reading);margin:0 auto;padding:0 var(--gutter)}
+section{position:relative;padding:clamp(96px,14vw,180px) 0}
+
+/* 金線分隔 */
+.gold-line{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  max-width:var(--max-w);margin:0 auto;
+  opacity:.6;
+}
+.gold-line-short{width:60px;height:1px;background:var(--gold);display:block}
+.gold-line-center{width:60px;height:1px;background:var(--gold);margin:0 auto;display:block}
+
+/* =========================================================
+   NAV — 紙感頂部
+   ========================================================= */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:80;
+  padding:18px var(--gutter);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(244,239,227,.78);
+  backdrop-filter:saturate(180%) blur(16px);
+  -webkit-backdrop-filter:saturate(180%) blur(16px);
+  transition:all .4s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.nav.scrolled{
+  background:rgba(244,239,227,.94);
+  border-bottom-color:var(--gold-line);
+}
+.brand{display:flex;align-items:center;gap:14px;color:var(--ink);text-decoration:none}
+.brand-mark{
+  width:57px;height:57px;border-radius:50%;
+  background:linear-gradient(160deg,#FBF7EB 0%,#EFE7D2 100%);
+  position:relative;flex-shrink:0;overflow:hidden;
+  box-shadow:0 3px 14px rgba(184,153,104,.25), inset 0 0 0 1px rgba(184,153,104,.32);
+  display:flex;align-items:center;justify-content:center;
+}
+.brand-mark img{
+  width:80%;height:80%;object-fit:contain;
+  /* 把黑底金線 PNG 轉成米底暖金大象（不偏橘） */
+  filter:invert(1) hue-rotate(178deg) saturate(1.8) brightness(.78) contrast(1.05);
+  mix-blend-mode:multiply;
+}
+.brand-mark::after{
+  content:'';position:absolute;inset:-3px;border-radius:50%;
+  border:1px solid var(--gold-line);
+  pointer-events:none;
+}
+.brand-name{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:500;
+  font-size:1.3rem;
+  color:var(--gold-deep);
+  letter-spacing:.05em;
+  display:inline-flex;align-items:baseline;
+}
+.brand-name em{
+  font-style:italic;font-weight:500;
+  color:var(--gold-deep);
+}
+
+.nav-links{display:none;gap:38px;align-items:center}
+.nav-links a{
+  color:var(--ink-2);text-decoration:none;
+  font-size:.85rem;font-weight:400;
+  letter-spacing:.06em;position:relative;
+  transition:color .3s;
+}
+.nav-links a:hover{color:var(--gold-deep)}
+.nav-links a::after{
+  content:'';position:absolute;left:0;right:0;bottom:-6px;height:1px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform .35s var(--ease);
+}
+.nav-links a:hover::after{transform:scaleX(1)}
+
+.nav-cta{
+  display:inline-flex;align-items:center;gap:.7em;
+  padding:11px 22px;border-radius:999px;
+  background:var(--ink);
+  border:1px solid var(--ink);
+  color:var(--paper);text-decoration:none;
+  font-size:.82rem;letter-spacing:.06em;font-weight:400;
+  transition:all .3s var(--ease);
+}
+.nav-cta:hover{background:var(--gold-deep);border-color:var(--gold-deep);transform:translateY(-1px)}
+
+.menu-btn{
+  display:flex;flex-direction:column;gap:5px;
+  background:transparent;border:0;cursor:pointer;padding:8px;
+}
+.menu-btn span{width:22px;height:1px;background:var(--ink);transition:.3s}
+.menu-btn.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0}
+.menu-btn.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+.mobile-menu{
+  position:fixed;inset:64px 0 0 0;z-index:79;
+  background:rgba(244,239,227,.98);
+  backdrop-filter:blur(20px);
+  padding:48px var(--gutter);
+  transform:translateY(-100%);transition:transform .5s var(--ease);
+  display:flex;flex-direction:column;gap:24px;
+}
+.mobile-menu.open{transform:translateY(0)}
+.mobile-menu a{
+  color:var(--ink);text-decoration:none;
+  font-family:'Noto Serif TC',serif;font-size:1.5rem;font-weight:300;
+  padding:14px 0;border-bottom:1px solid var(--gold-line);
+}
+.mobile-menu .nav-cta{margin-top:24px;align-self:flex-start;font-size:.95rem;padding:14px 26px}
+
+@media(min-width:960px){
+  .nav-links{display:flex}
+  .menu-btn{display:none}
+}
+
+/* =========================================================
+   HERO — 編輯感首屏
+   ========================================================= */
+.hero{
+  min-height:100vh;
+  padding-top:140px;padding-bottom:80px;
+  display:flex;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(900px 600px at 80% 20%, rgba(184,153,104,.18), transparent 60%),
+    radial-gradient(700px 500px at 10% 80%, rgba(184,153,104,.12), transparent 60%);
+}
+.hero-orb{
+  position:absolute;border-radius:50%;
+  filter:blur(80px);opacity:.55;pointer-events:none;
+  animation:floatSlow 18s ease-in-out infinite;
+}
+.hero-orb.a{top:10%;right:-8%;width:480px;height:480px;background:radial-gradient(circle,var(--gold-soft),transparent 65%)}
+.hero-orb.b{bottom:-10%;left:-6%;width:380px;height:380px;background:radial-gradient(circle,rgba(184,153,104,.4),transparent 65%);animation-delay:-9s}
+@keyframes floatSlow{0%,100%{transform:translateY(0) translateX(0)}50%{transform:translateY(-24px) translateX(16px)}}
+
+.hero-grid{
+  position:relative;z-index:2;
+  display:grid;gap:64px;
+  grid-template-columns:1fr;
+}
+
+.hero-meta-top{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:32px;margin-bottom:48px;
+  border-bottom:1px solid var(--gold-line);
+}
+.hero-meta-top .label{font-size:.65rem}
+
+.hero h1{
+  font-size:clamp(2.6rem,7vw,5.4rem);
+  line-height:1.1;
+  font-weight:300;
+  font-family:'Noto Serif TC',serif;
+  color:var(--ink);
+  margin-bottom:48px;
+  letter-spacing:-.012em;
+}
+.hero h1 .br{display:block}
+.hero h1 em{
+  font-style:italic;
+  font-family:'Cormorant Garamond',serif;
+  color:var(--gold-deep);
+  font-weight:400;
+}
+
+.hero-sub{
+  max-width:540px;
+  font-size:clamp(1rem,1.7vw,1.18rem);
+  color:var(--ink-2);
+  line-height:1.95;
+  margin-bottom:56px;
+  font-weight:300;
+}
+.hero-sub strong{font-weight:500;color:var(--ink)}
+
+.hero-fit{
+  margin-top:32px;
+  font-size:.82rem;
+  color:var(--ink-3);
+  font-weight:300;
+  letter-spacing:.06em;
+  line-height:1.7;
+  display:flex;flex-wrap:wrap;align-items:center;gap:14px;
+}
+.hero-fit-lbl{
+  display:inline-block;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:.85rem;
+  color:var(--gold-deep);
+  padding:3px 10px;
+  border:1px solid var(--gold-line);
+  border-radius:999px;
+  letter-spacing:.08em;
+}
+
+.cta-row{display:flex;flex-wrap:wrap;gap:18px;align-items:center}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.8em;
+  padding:18px 32px;border-radius:999px;
+  font-size:.92rem;font-weight:400;letter-spacing:.08em;
+  text-decoration:none;cursor:pointer;border:0;
+  transition:all .35s var(--ease);
+  font-family:inherit;
+}
+.btn-primary{
+  background:var(--ink);
+  color:var(--paper);
+  border:1px solid var(--ink);
+}
+.btn-primary:hover{background:var(--gold-deep);border-color:var(--gold-deep);transform:translateY(-2px)}
+.btn-ghost{
+  background:transparent;color:var(--ink);
+  border:1px solid var(--gold);
+}
+.btn-ghost:hover{background:var(--gold);color:var(--paper);transform:translateY(-2px)}
+.btn .arrow{transition:transform .3s var(--ease);font-family:'Cormorant Garamond',serif;font-size:1.2em}
+.btn:hover .arrow{transform:translateX(6px)}
+
+/* Hero 副資訊條 */
+.hero-trust{
+  margin-top:80px;padding-top:36px;
+  border-top:1px solid var(--gold-line);
+  display:grid;gap:32px;
+  grid-template-columns:repeat(2,1fr);
+}
+@media(min-width:780px){.hero-trust{grid-template-columns:repeat(4,1fr)}}
+.trust-item{display:flex;flex-direction:column;gap:6px}
+.trust-item .num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.2rem;color:var(--gold-deep);
+  font-weight:300;line-height:1;letter-spacing:-.02em;
+}
+.trust-item .lbl{font-size:.78rem;color:var(--ink-3);letter-spacing:.05em}
+
+/* =========================================================
+   Hero 右側 · AI Persona 浮動診斷卡系統
+   ========================================================= */
+.hero-aside{
+  position:relative;display:none;
+}
+@media(min-width:1024px){
+  .hero-grid{grid-template-columns:1.3fr .8fr;gap:64px;align-items:start}
+  .hero-aside{display:block;height:600px}
+}
+
+.ai-scope{position:relative;width:100%;height:100%}
+
+/* 背景柔光與細格 */
+.ai-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(184,153,104,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184,153,104,.08) 1px, transparent 1px);
+  background-size:28px 28px;
+  -webkit-mask-image:radial-gradient(circle at 55% 45%, black 25%, transparent 75%);
+  mask-image:radial-gradient(circle at 55% 45%, black 25%, transparent 75%);
+  opacity:.6;
+}
+.ai-orb-soft{
+  position:absolute;top:30%;left:20%;
+  width:380px;height:380px;border-radius:50%;
+  background:radial-gradient(circle, rgba(184,153,104,.25), transparent 65%);
+  filter:blur(50px);pointer-events:none;
+  animation:floatSlow 16s ease-in-out infinite;
+}
+
+/* AI 狀態列 */
+.ai-status{
+  position:absolute;top:4px;right:8px;z-index:5;
+  display:flex;align-items:center;gap:10px;
+  font-family:'Inter',sans-serif;
+  font-size:.62rem;letter-spacing:.18em;
+  color:var(--gold-deep);text-transform:uppercase;font-weight:500;
+}
+.ai-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 0 rgba(184,153,104,.6);
+  animation:dotPulse 2.4s ease-in-out infinite;
+}
+@keyframes dotPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(184,153,104,.5);transform:scale(1)}
+  50%{box-shadow:0 0 0 6px rgba(184,153,104,0);transform:scale(1.15)}
+}
+
+/* 浮動玻璃卡 */
+.hv-card{
+  position:absolute;
+  padding:22px 22px;
+  background:rgba(244,239,227,.62);
+  -webkit-backdrop-filter:blur(16px) saturate(140%);
+  backdrop-filter:blur(16px) saturate(140%);
+  border:1px solid rgba(184,153,104,.32);
+  border-radius:14px;
+  box-shadow:
+    0 30px 60px -22px rgba(28,26,22,.18),
+    0 8px 20px -8px rgba(184,153,104,.18),
+    inset 0 1px 0 rgba(255,255,255,.6);
+  transition:transform .6s var(--ease), box-shadow .6s var(--ease);
+}
+.hv-card::before{
+  content:'';position:absolute;inset:0;border-radius:14px;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(255,255,255,.5), transparent 55%),
+    radial-gradient(circle at 90% 100%, rgba(184,153,104,.10), transparent 60%);
+  pointer-events:none;
+}
+.hv-card:hover{
+  box-shadow:
+    0 40px 80px -22px rgba(28,26,22,.25),
+    0 12px 28px -8px rgba(184,153,104,.25),
+    inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+.hv-persona{top:30px;right:0;width:298px;transform:rotate(1.5deg);z-index:3}
+.hv-flow{top:298px;left:-12px;width:238px;transform:rotate(-2.5deg);z-index:2}
+.hv-voice{bottom:8px;right:18px;width:248px;transform:rotate(1.6deg);z-index:4}
+
+.hv-card:hover{transform:translateY(-4px) rotate(0deg)}
+
+/* 卡片內容 */
+.hv-head{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:16px;
+  padding-bottom:10px;
+  border-bottom:1px solid rgba(184,153,104,.18);
+}
+.hv-tag{
+  font-family:'Inter',sans-serif;
+  font-size:.62rem;letter-spacing:.22em;
+  color:var(--gold-deep);text-transform:uppercase;font-weight:500;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.hv-tag-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 6px var(--gold-soft);
+}
+.hv-meta{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:.78rem;
+  color:var(--ink-3);
+}
+
+.hv-section-label{
+  font-size:.7rem;color:var(--ink-3);
+  margin-bottom:6px;letter-spacing:.04em;
+}
+.hv-name{
+  font-family:'Noto Serif TC',serif;
+  font-size:1.35rem;font-weight:400;
+  color:var(--ink);line-height:1.4;
+  margin-bottom:12px;letter-spacing:-.005em;
+}
+.hv-name em{
+  font-style:italic;
+  font-family:'Cormorant Garamond',serif;
+  color:var(--gold-deep);font-weight:500;
+}
+.hv-body{
+  font-size:.82rem;color:var(--ink-2);
+  line-height:1.78;font-weight:300;
+}
+
+.hv-bar{
+  margin-top:16px;padding-top:14px;
+  border-top:1px solid rgba(184,153,104,.18);
+  display:flex;align-items:center;gap:12px;
+}
+.hv-bar-track{
+  flex:1;height:3px;border-radius:3px;
+  background:rgba(184,153,104,.18);overflow:hidden;
+  position:relative;
+}
+.hv-bar-fill{
+  display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--gold-soft),var(--gold-deep));
+  border-radius:3px;
+  animation:fillBar 1.8s cubic-bezier(.16,1,.3,1) 1.2s forwards;
+  box-shadow:0 0 8px rgba(184,153,104,.5);
+}
+@keyframes fillBar{ to{width:97%} }
+.hv-bar-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1rem;color:var(--gold-deep);font-weight:500;
+}
+.hv-pct{font-size:.72em;margin-left:1px}
+
+/* 客戶旅程 — 垂直版（取代橫排，避免擠壓） */
+.hv-journey-v{
+  display:flex;flex-direction:column;gap:8px;
+  margin-top:8px;position:relative;
+}
+.hv-journey-v::before{
+  content:'';position:absolute;
+  left:34px;top:14px;bottom:14px;
+  width:1px;
+  background:linear-gradient(180deg,
+    rgba(184,153,104,.05),
+    rgba(184,153,104,.45) 30%,
+    rgba(184,153,104,.45) 70%,
+    rgba(184,153,104,.05));
+}
+.jrow{
+  display:flex;align-items:center;gap:14px;
+  position:relative;z-index:2;
+}
+.jstep{
+  padding:5px 14px;border-radius:999px;
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(184,153,104,.3);
+  font-family:'Noto Serif TC',serif;
+  font-size:.8rem;color:var(--ink-2);font-weight:400;
+  min-width:62px;text-align:center;
+  letter-spacing:.05em;
+  transition:all .3s var(--ease);
+}
+.jstep.active{
+  background:var(--ink);color:var(--paper);
+  border-color:var(--ink);
+  box-shadow:0 6px 16px -4px rgba(28,26,22,.3);
+}
+.jline{
+  flex:1;height:1px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  opacity:.5;
+}
+.jdot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 10px var(--gold-soft);
+  animation:dotPulse 2.4s ease-in-out infinite;
+}
+
+/* 品牌感受 — AI 量表（取代橫排 pill） */
+.hv-meters{
+  display:flex;flex-direction:column;gap:12px;margin-top:8px;
+}
+.meter{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Noto Sans TC',sans-serif;
+}
+.meter-lbl{
+  font-family:'Noto Serif TC',serif;
+  font-size:.78rem;color:var(--ink-2);
+  font-weight:400;letter-spacing:.05em;
+  width:48px;flex-shrink:0;
+}
+.meter-track{
+  flex:1;height:3px;border-radius:3px;
+  background:rgba(184,153,104,.15);overflow:hidden;
+  position:relative;
+}
+.meter-fill{
+  display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--gold-soft),var(--gold-deep));
+  border-radius:3px;
+  box-shadow:0 0 8px rgba(184,153,104,.4);
+  animation:meterFill 1.6s cubic-bezier(.16,1,.3,1) 1.4s forwards;
+}
+@keyframes meterFill{ to{width:var(--w)} }
+.meter-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.92rem;color:var(--gold-deep);font-weight:500;
+  width:24px;text-align:right;flex-shrink:0;
+}
+
+/* 卡片角落小符號 */
+.hv-corner-glyph{
+  position:absolute;bottom:14px;right:16px;
+  width:18px;height:18px;
+  border:1px solid rgba(184,153,104,.4);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.hv-corner-glyph::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 6px var(--gold);
+}
+
+/* =========================================================
+   SECTION HEAD
+   ========================================================= */
+.sec-head{margin-bottom:clamp(56px,9vw,112px);max-width:780px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head .eyebrow{margin-bottom:24px}
+.sec-head h2{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(2.2rem,5vw,3.6rem);
+  font-weight:300;line-height:1.2;
+  color:var(--ink);
+  margin-bottom:28px;
+  letter-spacing:-.015em;
+}
+.sec-head h2 em{
+  font-style:italic;font-family:'Cormorant Garamond',serif;
+  color:var(--gold-deep);font-weight:400;
+}
+.sec-head .lead{max-width:620px}
+.sec-head.center .lead{margin-left:auto;margin-right:auto}
+
+/* =========================================================
+   品牌信念 — 暗場 20%
+   ========================================================= */
+.manifesto{
+  background:var(--space);
+  color:var(--moonlight);
+  padding:clamp(120px,16vw,200px) 0;
+  position:relative;overflow:hidden;
+}
+.manifesto::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(800px 500px at 50% 0%, rgba(184,153,104,.18), transparent 60%),
+    radial-gradient(600px 400px at 50% 100%, rgba(184,153,104,.10), transparent 60%);
+}
+.manifesto::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(232,223,201,.4), transparent),
+    radial-gradient(1px 1px at 60% 50%, rgba(232,223,201,.3), transparent),
+    radial-gradient(1px 1px at 85% 25%, rgba(232,223,201,.5), transparent),
+    radial-gradient(1.5px 1.5px at 35% 75%, rgba(232,223,201,.4), transparent),
+    radial-gradient(1px 1px at 75% 85%, rgba(232,223,201,.3), transparent);
+  background-size:1000px 800px;
+  opacity:.6;
+  animation:starDrift 100s linear infinite;
+}
+@keyframes starDrift{to{background-position:-1000px -800px}}
+
+.manifesto-body{position:relative;z-index:2;text-align:center;max-width:880px;margin:0 auto;padding:0 var(--gutter)}
+.manifesto .label{color:var(--gold-soft);margin-bottom:48px;display:inline-block}
+.manifesto .quote{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.9rem,4.6vw,3.2rem);
+  font-weight:200;line-height:1.5;
+  color:var(--moonlight);
+  letter-spacing:.005em;
+}
+.manifesto .quote em{
+  font-style:italic;font-family:'Cormorant Garamond',serif;
+  color:var(--gold-soft);font-weight:400;
+}
+.manifesto .sig{
+  margin-top:60px;
+  font-family:'Inter',sans-serif;
+  font-size:.72rem;letter-spacing:.28em;
+  color:var(--moon-2);text-transform:uppercase;
+}
+.manifesto .sig::before{content:'';display:inline-block;width:36px;height:1px;background:var(--gold);vertical-align:middle;margin-right:16px}
+
+/* =========================================================
+   方法論 — 為什麼 AI PERSONA
+   ========================================================= */
+.method-grid{
+  display:grid;gap:1px;background:var(--gold-line);
+  border:1px solid var(--gold-line);
+}
+@media(min-width:760px){.method-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.method-grid{grid-template-columns:repeat(4,1fr)}}
+.method{
+  padding:48px 36px;background:var(--paper);
+  display:flex;flex-direction:column;gap:18px;
+  transition:background .4s var(--ease);
+  min-height:300px;
+}
+.method:hover{background:var(--paper-2)}
+.method .roman{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1.6rem;
+  color:var(--gold-deep);font-weight:400;
+  letter-spacing:.05em;
+}
+.method h4{
+  font-family:'Noto Serif TC',serif;
+  font-size:1.25rem;font-weight:400;
+  color:var(--ink);
+}
+.method p{font-size:.92rem;color:var(--ink-2);line-height:1.95;font-weight:300}
+.method p em{
+  font-style:normal;
+  color:var(--ink);
+  font-weight:400;
+  background:linear-gradient(180deg,transparent 68%,rgba(184,153,104,.22) 68%);
+}
+
+/* =========================================================
+   三大服務 — 編輯式特寫
+   ========================================================= */
+.service{
+  display:grid;gap:64px;
+  grid-template-columns:1fr;
+  align-items:start;
+  margin-bottom:clamp(100px,14vw,180px);
+}
+.service:last-child{margin-bottom:0}
+@media(min-width:960px){
+  .service{grid-template-columns:1.05fr 1fr;gap:96px}
+  .service.reverse .s-text{order:2}
+  .service.reverse .s-visual{order:1}
+}
+
+.s-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-style:italic;
+  color:var(--gold-deep);
+  letter-spacing:.18em;
+  margin-bottom:20px;
+  display:flex;align-items:center;gap:14px;
+}
+.s-num::before{content:'';display:inline-block;width:36px;height:1px;background:var(--gold)}
+.s-num .roman{font-style:normal;font-weight:500;font-size:1.2rem;letter-spacing:.1em}
+
+.s-pain{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.4rem,2.6vw,1.85rem);
+  font-weight:300;color:var(--ink-2);
+  line-height:1.55;margin-bottom:28px;
+  font-style:italic;
+  padding-left:24px;border-left:2px solid var(--gold);
+}
+
+.s-tagline{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1rem,1.6vw,1.15rem);
+  color:var(--ink-2);
+  line-height:1.7;
+  margin:-12px 0 32px;
+  font-weight:300;
+  letter-spacing:.02em;
+}
+.s-tagline em{
+  font-style:italic;
+  font-family:'Cormorant Garamond','Noto Serif TC',serif;
+  color:var(--gold-deep);
+  font-weight:500;
+  margin-left:.1em;
+}
+.s-tagline span{
+  position:relative;
+  color:var(--ink-3);
+  text-decoration:line-through;
+  text-decoration-color:rgba(184,153,104,.5);
+  text-decoration-thickness:1px;
+}
+
+.service h3{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(2rem,4vw,2.8rem);
+  font-weight:300;color:var(--ink);
+  line-height:1.25;margin-bottom:28px;letter-spacing:-.01em;
+}
+.service h3 em{font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-weight:400}
+.service h3 .sub{
+  display:block;font-size:.55em;
+  color:var(--gold-deep);font-style:italic;
+  font-family:'Cormorant Garamond',serif;
+  letter-spacing:.08em;margin-bottom:.4em;font-weight:400;
+}
+
+.service .s-body{
+  color:var(--ink-2);font-size:1rem;line-height:2;margin-bottom:36px;font-weight:300;
+}
+
+.s-includes{
+  margin-bottom:36px;
+}
+.s-includes .lbl{
+  font-size:.7rem;letter-spacing:.22em;color:var(--gold-deep);
+  text-transform:uppercase;margin-bottom:20px;font-weight:500;
+}
+.s-includes ul{list-style:none}
+.s-includes li{
+  padding:16px 0;border-top:1px solid var(--gold-line);
+  display:flex;gap:18px;align-items:baseline;
+  font-size:.94rem;color:var(--ink);
+}
+.s-includes li:last-child{border-bottom:1px solid var(--gold-line)}
+.s-includes .n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;color:var(--gold-deep);font-style:italic;
+  width:24px;flex-shrink:0;
+}
+.s-includes li strong{font-weight:500;color:var(--ink);display:block;margin-bottom:4px}
+.s-includes li span{font-size:.86rem;color:var(--ink-3);font-weight:300;line-height:1.7}
+
+.s-fit{
+  font-size:.85rem;color:var(--ink-3);margin-bottom:32px;
+  padding:14px 0;border-top:1px dashed var(--gold-line);border-bottom:1px dashed var(--gold-line);
+  font-style:italic;
+}
+.s-fit::before{content:'適合：';font-style:normal;color:var(--gold-deep);font-weight:500;margin-right:6px}
+
+/* 服務視覺面板 */
+.s-visual{
+  position:relative;aspect-ratio:4/5;
+  background:var(--paper-2);
+  border:1px solid var(--gold-line);
+  border-radius:var(--radius);
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 30px 60px -30px rgba(28,26,22,.18);
+}
+.s-visual::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 25%, rgba(184,153,104,.16), transparent 55%),
+    radial-gradient(circle at 75% 80%, rgba(184,153,104,.10), transparent 55%);
+}
+/* 真實圖片版本：圖片填滿、無內部漸層裝飾 */
+.s-visual-img{background:transparent}
+.s-visual-img::before,.s-visual-img::after{display:none}
+.s-visual-img .corner-mark,.s-visual-img .corner-num{display:none}
+.s-img{
+  position:absolute;inset:0;z-index:2;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+  transition:transform .8s var(--ease);
+}
+.s-visual-img:hover .s-img{transform:scale(1.02)}
+
+/* ============================================================
+   Service Nº III · 完整體驗預覽 Banner
+   ============================================================ */
+.s-preview{
+  margin-top:clamp(64px,9vw,120px);
+  display:flex;flex-direction:column;align-items:center;
+  gap:clamp(40px,5vw,64px);
+}
+.s-preview-head{
+  text-align:center;max-width:680px;
+}
+.s-preview-meta{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  margin-bottom:24px;
+}
+.s-preview-line{
+  width:36px;height:1px;background:var(--gold);opacity:.6;
+}
+.s-preview-label{
+  font-family:'Inter',sans-serif;
+  font-size:.7rem;letter-spacing:.32em;
+  color:var(--gold-deep);text-transform:uppercase;font-weight:500;
+}
+.s-preview-title{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.6rem,3vw,2.4rem);
+  font-weight:300;color:var(--ink);
+  line-height:1.4;margin-bottom:20px;
+  letter-spacing:-.005em;
+}
+.s-preview-title em{
+  font-style:italic;
+  font-family:'Cormorant Garamond','Noto Serif TC',serif;
+  color:var(--gold-deep);font-weight:500;
+}
+.s-preview-desc{
+  font-size:.98rem;color:var(--ink-2);
+  line-height:1.9;font-weight:300;
+  max-width:560px;margin:0 auto;
+}
+.s-preview-frame{
+  width:100%;margin:0;
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  border:1px solid var(--gold-line);
+  background:linear-gradient(165deg,#F8F3E7 0%,#EFE7D2 100%);
+  box-shadow:
+    0 50px 100px -40px rgba(28,26,22,.28),
+    0 12px 32px -10px rgba(184,153,104,.18),
+    inset 0 1px 0 rgba(255,255,255,.5);
+  position:relative;
+}
+.s-preview-frame::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  border-radius:var(--radius-lg);
+  box-shadow:inset 0 0 0 1px rgba(184,153,104,.15);
+}
+.s-preview-frame img{
+  width:100%;height:auto;display:block;
+  transition:transform .8s var(--ease);
+}
+.s-preview-frame:hover img{transform:scale(1.015)}
+.s-visual .corner-mark{
+  position:absolute;top:24px;left:24px;
+  font-size:.65rem;letter-spacing:.2em;
+  color:var(--gold-deep);text-transform:uppercase;
+}
+.s-visual .corner-num{
+  position:absolute;bottom:24px;right:28px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.4rem;color:var(--gold-deep);
+}
+
+/* 服務 02 · AI Persona 品牌角色宇宙 */
+.persona-universe{
+  position:relative;width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+}
+.pu-orbits{
+  position:absolute;inset:5%;
+  width:90%;height:90%;pointer-events:none;
+}
+.pu-orbits ellipse{
+  transform-origin:center;
+  animation:orbitSpin 60s linear infinite;
+}
+.pu-orbits ellipse:nth-child(3){animation-duration:80s;animation-direction:reverse}
+.pu-orbits ellipse:nth-child(4){animation-duration:45s}
+@keyframes orbitSpin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+/* 中心人像母體 */
+.pu-core{
+  position:relative;z-index:5;
+  width:42%;aspect-ratio:3/4;max-width:200px;
+  display:flex;flex-direction:column;align-items:center;
+}
+.pu-core-inner{
+  position:relative;width:100%;aspect-ratio:3/4;
+  background:linear-gradient(180deg,rgba(244,239,227,.95),rgba(237,230,213,.92));
+  border:1px solid rgba(184,153,104,.45);
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:
+    0 20px 60px -20px rgba(184,153,104,.5),
+    0 0 80px rgba(184,153,104,.25),
+    inset 0 1px 0 rgba(255,255,255,.6);
+}
+.pu-core-inner::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(214,190,148,.4), transparent 60%);
+}
+.pu-core-inner::after{
+  content:'';position:absolute;inset:8px;
+  border:1px dashed rgba(184,153,104,.35);
+  border-radius:4px;pointer-events:none;
+}
+.pu-silhouette{
+  position:absolute;left:50%;top:60%;transform:translate(-50%,-50%);
+  width:55%;height:65%;
+  background:
+    radial-gradient(ellipse at 50% 25%, rgba(28,26,22,.55), rgba(28,26,22,.15) 70%, transparent 90%);
+  border-radius:50% 50% 40% 40% / 60% 60% 40% 40%;
+  filter:blur(2px);
+}
+.pu-core-label{
+  margin-top:12px;
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+}
+.pu-core-tag{
+  font-family:'Inter',sans-serif;
+  font-size:.6rem;letter-spacing:.28em;
+  color:var(--gold-deep);text-transform:uppercase;font-weight:500;
+}
+.pu-core-name{
+  font-family:'Noto Serif TC',serif;
+  font-size:.78rem;color:var(--ink);
+  letter-spacing:.05em;font-weight:400;
+}
+
+/* 延伸節點 */
+.pu-node{
+  position:absolute;z-index:4;
+  font-family:'Noto Serif TC',serif;
+  font-size:.7rem;color:var(--ink-2);
+  padding:5px 12px;border-radius:999px;
+  background:rgba(244,239,227,.85);
+  border:1px solid rgba(184,153,104,.4);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  white-space:nowrap;letter-spacing:.04em;
+  box-shadow:
+    0 6px 18px -6px rgba(28,26,22,.18),
+    inset 0 1px 0 rgba(255,255,255,.5);
+  animation:nodeFloat 8s ease-in-out infinite;
+}
+.pu-node::before{
+  content:'';position:absolute;
+  width:5px;height:5px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 6px var(--gold-soft);
+  top:50%;transform:translateY(-50%);
+}
+.pu-node.n1{top:8%;left:6%;animation-delay:0s}
+.pu-node.n1::before{right:-9px}
+
+.pu-node.n2{top:18%;right:4%;animation-delay:-1.2s}
+.pu-node.n2::before{left:-9px}
+
+.pu-node.n3{top:46%;left:-2%;animation-delay:-2.4s}
+.pu-node.n3::before{right:-9px}
+
+.pu-node.n4{top:54%;right:-2%;animation-delay:-3.6s}
+.pu-node.n4::before{left:-9px}
+
+.pu-node.n5{bottom:18%;left:8%;animation-delay:-4.8s}
+.pu-node.n5::before{right:-9px}
+
+.pu-node.n6{bottom:10%;right:8%;animation-delay:-6s}
+.pu-node.n6::before{left:-9px}
+
+@keyframes nodeFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+
+/* 角落呼吸光點 */
+.pu-spark{
+  position:absolute;width:4px;height:4px;border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 8px var(--gold-soft);
+  animation:dotPulse 3s ease-in-out infinite;
+}
+.pu-spark.s1{top:22%;right:28%;animation-delay:-.5s}
+.pu-spark.s2{bottom:30%;left:24%;animation-delay:-1.5s}
+.pu-spark.s3{top:50%;right:18%;animation-delay:-2.5s}
+
+/* =========================================================
+   Persona Journeys — 人物品牌雜誌式卡片
+   ========================================================= */
+.cases{position:relative}
+.journey-grid{
+  display:grid;gap:36px;grid-template-columns:1fr;
+}
+@media(min-width:760px){.journey-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.journey-grid{grid-template-columns:repeat(3,1fr)}}
+
+.journey{
+  display:flex;flex-direction:column;gap:24px;
+  text-decoration:none;color:inherit;
+  transition:transform .5s var(--ease);
+}
+.journey:hover{transform:translateY(-6px)}
+.journey:hover .j-img{transform:scale(1.04);filter:saturate(1) brightness(1.05)}
+.journey:hover .sys-arr{transform:translateX(4px)}
+
+/* 卡片封面 — 真實人物照版型 */
+.j-cover{
+  aspect-ratio:4/5;position:relative;overflow:hidden;
+  border:1px solid var(--gold-line);
+  border-radius:var(--radius);
+  background:linear-gradient(165deg,#F8F3E7 0%,#EFE7D2 100%);
+  box-shadow:0 30px 60px -30px rgba(28,26,22,.16);
+}
+.j-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 30%;
+  transition:transform .8s var(--ease), filter .8s var(--ease);
+  filter:saturate(.92) brightness(1.02);
+}
+.j-overlay{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    linear-gradient(180deg,
+      rgba(28,26,22,.35) 0%,
+      rgba(28,26,22,0) 18%,
+      rgba(28,26,22,0) 38%,
+      rgba(28,26,22,.55) 62%,
+      rgba(28,26,22,.86) 88%,
+      rgba(28,26,22,.95) 100%),
+    radial-gradient(circle at 70% 20%, rgba(214,190,148,.18), transparent 55%);
+  transition:opacity .6s var(--ease);
+}
+
+/* 卡片頭：編號 + 角色（疊在照片上） */
+.j-head{
+  position:absolute;top:22px;left:22px;right:22px;z-index:3;
+  display:flex;align-items:flex-start;justify-content:space-between;
+}
+.j-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.4rem;color:var(--gold-soft);font-weight:500;
+  letter-spacing:.05em;
+  text-shadow:0 1px 8px rgba(0,0,0,.4);
+}
+.j-role{
+  display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right;
+  padding:8px 12px;border-radius:8px;
+  background:rgba(244,239,227,.78);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(214,190,148,.4);
+}
+.j-role .ch{
+  font-family:'Noto Serif TC',serif;
+  font-size:.85rem;color:var(--ink);font-weight:500;
+  letter-spacing:.06em;line-height:1.2;
+}
+.j-role .en{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.72rem;color:var(--gold-deep);font-weight:400;
+  letter-spacing:.05em;
+}
+
+/* 從→到轉變區（疊在照片底部，強化可讀性） */
+.j-transform{
+  position:absolute;left:0;right:0;bottom:0;z-index:3;
+  padding:80px 24px 26px;
+  display:flex;flex-direction:column;gap:10px;
+}
+.t-row{display:flex;align-items:baseline;gap:14px}
+.t-lbl{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.15rem;color:#E8C8A0;font-weight:500;
+  width:24px;flex-shrink:0;
+  text-shadow:0 2px 8px rgba(0,0,0,.5);
+}
+.t-txt{
+  font-family:'Noto Serif TC',serif;
+  font-size:1.12rem;color:rgba(255,250,240,.95);font-weight:400;
+  line-height:1.4;letter-spacing:.005em;
+  text-shadow:0 2px 10px rgba(0,0,0,.6), 0 0 24px rgba(0,0,0,.4);
+}
+.t-row.to .t-txt{color:#FFFAEF;font-weight:500;font-size:1.2rem}
+.t-row.to .t-txt em{
+  font-style:normal;color:#FFE8C2;font-weight:500;
+  background:linear-gradient(180deg,transparent 60%,rgba(184,153,104,.7) 60%,rgba(143,117,71,.5) 100%);
+  padding:2px 4px;border-radius:2px;
+}
+.t-arrow{
+  font-family:'Cormorant Garamond',serif;
+  color:#E8C8A0;font-size:1.15rem;
+  margin-left:5px;line-height:1;font-weight:300;
+  opacity:.9;
+  text-shadow:0 2px 8px rgba(0,0,0,.5);
+}
+
+/* 系統徽章 */
+.j-system{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 18px;
+  background:var(--paper-2);
+  border:1px solid var(--gold-line);
+  border-radius:999px;
+  transition:all .35s var(--ease);
+}
+.journey:hover .j-system{
+  background:var(--paper);
+  border-color:rgba(184,153,104,.45);
+}
+.sys-icon{
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(214,190,148,.4),rgba(184,153,104,.18));
+  border:1px solid rgba(184,153,104,.35);
+  font-size:.92rem;color:var(--gold-deep);
+  font-family:'Cormorant Garamond',serif;
+  flex-shrink:0;
+}
+.sys-name{
+  flex:1;
+  font-family:'Noto Serif TC',serif;
+  font-size:.92rem;color:var(--ink);
+  font-weight:400;letter-spacing:.02em;
+}
+.sys-arr{
+  font-family:'Cormorant Garamond',serif;
+  color:var(--gold-deep);font-size:1.1rem;
+  transition:transform .3s var(--ease);
+}
+
+/* 卡片下方短故事 */
+.j-story{
+  font-size:.88rem;color:var(--ink-2);
+  line-height:1.85;font-weight:300;
+  padding:0 4px;
+}
+.j-story strong{
+  display:block;
+  font-family:'Noto Serif TC',serif;font-weight:400;
+  font-size:.78rem;color:var(--gold-deep);
+  letter-spacing:.08em;margin-bottom:8px;
+}
+
+/* 查看更多按鈕 */
+.journey-more{
+  margin-top:64px;
+  display:flex;justify-content:center;
+}
+
+/* =========================================================
+   AI 商業觀察 — Editorial / Magazine 卡片
+   ========================================================= */
+.journal-grid{
+  display:grid;gap:1px;background:var(--gold-line);
+  border:1px solid var(--gold-line);
+  grid-template-columns:1fr;
+  border-radius:var(--radius-lg);overflow:hidden;
+}
+@media(min-width:720px){.journal-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.journal-grid{grid-template-columns:repeat(3,1fr)}}
+
+.journal{
+  padding:40px 32px;background:var(--paper);
+  display:flex;flex-direction:column;gap:18px;
+  cursor:pointer;
+  transition:background .5s var(--ease);
+  min-height:340px;
+  position:relative;overflow:hidden;
+}
+.journal::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(circle at 100% 0%, rgba(184,153,104,.16), transparent 55%);
+  opacity:0;transition:opacity .6s var(--ease);
+}
+.journal::after{
+  content:'';position:absolute;left:32px;right:32px;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:scaleX(0);transform-origin:center;
+  transition:transform .6s var(--ease);
+}
+.journal:hover{background:var(--paper-2)}
+.journal:hover::before{opacity:1}
+.journal:hover::after{transform:scaleX(1)}
+.journal:hover h4{transform:translateY(-2px)}
+.journal:hover .more{padding-left:6px;color:var(--ink)}
+
+.journal-meta{
+  display:flex;gap:14px;align-items:center;justify-content:space-between;
+  position:relative;z-index:2;
+}
+.journal-meta .cat{
+  font-family:'Noto Serif TC',sans-serif;
+  font-size:.7rem;color:var(--gold-deep);font-weight:500;
+  letter-spacing:.18em;
+  padding:5px 11px;border:1px solid var(--gold-line);
+  border-radius:999px;
+  background:rgba(244,239,227,.6);
+  backdrop-filter:blur(6px);
+}
+.journal-meta .note-id{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.78rem;color:var(--ink-3);
+  letter-spacing:.06em;font-weight:400;
+}
+
+.journal h4{
+  font-family:'Noto Serif TC',serif;
+  font-size:1.35rem;line-height:1.5;
+  color:var(--ink);font-weight:400;letter-spacing:-.005em;
+  position:relative;z-index:2;
+  transition:transform .5s var(--ease);
+}
+.journal h4 em{
+  font-style:italic;
+  font-family:'Cormorant Garamond','Noto Serif TC',serif;
+  color:var(--gold-deep);font-weight:500;
+}
+
+.journal p{
+  font-size:.88rem;color:var(--ink-2);
+  line-height:1.85;flex:1;font-weight:300;
+  position:relative;z-index:2;
+}
+.journal p strong{
+  font-weight:500;color:var(--ink);
+  background:linear-gradient(180deg,transparent 70%,rgba(184,153,104,.22) 70%);
+  padding:0 1px;
+}
+
+.journal .more{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.95rem;color:var(--gold-deep);
+  display:flex;align-items:center;gap:8px;
+  margin-top:auto;padding-top:8px;
+  position:relative;z-index:2;
+  transition:padding-left .3s var(--ease), color .3s var(--ease);
+}
+
+/* =========================================================
+   WHY AI PERSONA — 創辦人肖像
+   ========================================================= */
+.about-grid{display:grid;gap:64px;grid-template-columns:1fr;align-items:start}
+@media(min-width:960px){.about-grid{grid-template-columns:.9fr 1.1fr;gap:80px}}
+
+.founder-portrait{
+  position:relative;aspect-ratio:4/5;
+  border-radius:var(--radius-lg);overflow:hidden;
+  border:1px solid var(--gold-line);
+  background:linear-gradient(165deg,#F8F3E7 0%,#EFE7D2 100%);
+  box-shadow:
+    0 50px 100px -40px rgba(28,26,22,.3),
+    0 12px 32px -10px rgba(184,153,104,.18),
+    inset 0 1px 0 rgba(255,255,255,.5);
+}
+.founder-portrait img{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+  transition:transform .8s var(--ease);
+}
+.founder-portrait:hover img{transform:scale(1.03)}
+
+/* 整體疊圖：上下加深 + 中央柔焦讓白字可讀 */
+.founder-portrait::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:
+    linear-gradient(180deg,
+      rgba(28,26,22,.55) 0%,
+      rgba(28,26,22,.18) 16%,
+      rgba(28,26,22,.05) 32%,
+      rgba(28,26,22,.05) 60%,
+      rgba(28,26,22,.42) 90%,
+      rgba(28,26,22,.65) 100%);
+}
+.founder-portrait::after{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:radial-gradient(ellipse 60% 55% at 72% 50%, rgba(28,26,22,.4) 0%, transparent 70%);
+}
+
+/* 頂部標籤列 */
+.fp-top{
+  position:absolute;top:28px;left:32px;right:32px;z-index:3;
+  display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:18px;
+  border-bottom:1px solid rgba(244,239,227,.22);
+}
+.fp-tag{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.05rem;color:#F2D9B8;font-weight:500;
+  letter-spacing:.06em;
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+.fp-status{
+  font-family:'Inter',sans-serif;
+  font-size:.66rem;letter-spacing:.26em;
+  color:rgba(255,250,240,.95);text-transform:uppercase;font-weight:500;
+  display:inline-flex;align-items:center;gap:8px;
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+.fp-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:#D6BE94;
+  box-shadow:0 0 10px rgba(214,190,148,.7);
+  animation:dotPulse 2.4s ease-in-out infinite;
+}
+
+/* 中央 Manifesto 引言（偏右配置，讓人像視覺乾淨） */
+.fp-quote{
+  position:absolute;left:50%;right:32px;
+  top:50%;transform:translateY(-50%);
+  z-index:3;text-align:left;
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.1rem,2vw,1.45rem);
+  font-weight:300;line-height:1.7;
+  color:rgba(255,251,242,.97);
+  letter-spacing:.005em;
+  text-shadow:
+    0 2px 12px rgba(0,0,0,.65),
+    0 0 28px rgba(0,0,0,.45);
+}
+.fp-quote em{
+  font-style:italic;
+  font-family:'Cormorant Garamond','Noto Serif TC',serif;
+  color:#FFE2B0;font-weight:500;
+}
+
+/* 底部簽章列 */
+.fp-caption{
+  position:absolute;left:32px;right:32px;bottom:28px;z-index:3;
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding-top:18px;
+  border-top:1px solid rgba(244,239,227,.22);
+}
+.fp-label{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.05rem;color:#F2D9B8;font-weight:500;
+  letter-spacing:.05em;
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+.fp-est{
+  font-family:'Inter',sans-serif;
+  font-size:.66rem;letter-spacing:.24em;
+  color:rgba(255,250,240,.92);text-transform:uppercase;font-weight:500;
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
+}
+
+/* Manifesto Card — 一張實驗室裡的手記 */
+.manifesto-card{
+  position:relative;aspect-ratio:4/5;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(214,190,148,.35), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(184,153,104,.18), transparent 55%),
+    linear-gradient(165deg,#F8F3E7 0%,#EFE7D2 100%);
+  border:1px solid rgba(184,153,104,.35);
+  overflow:hidden;
+  box-shadow:
+    0 40px 80px -40px rgba(28,26,22,.25),
+    inset 0 1px 0 rgba(255,255,255,.55);
+  display:flex;flex-direction:column;
+  padding:36px 32px;
+}
+.manifesto-card::before{
+  content:'';position:absolute;inset:16px;
+  border:1px solid rgba(184,153,104,.22);pointer-events:none;
+}
+.manifesto-card::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 50% 50%, transparent 50%, rgba(184,153,104,.08) 100%);
+}
+
+.mc-head{
+  display:flex;justify-content:space-between;align-items:center;
+  position:relative;z-index:2;
+  padding-bottom:20px;
+  border-bottom:1px solid rgba(184,153,104,.25);
+}
+.mc-tag{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.92rem;color:var(--gold-deep);
+  letter-spacing:.08em;font-weight:500;
+}
+.mc-status{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:'Inter',sans-serif;
+  font-size:.62rem;color:var(--ink-3);
+  letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+}
+.mc-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--gold);
+  animation:dotPulse 2.4s ease-in-out infinite;
+}
+
+.mc-body{
+  flex:1;display:flex;align-items:center;justify-content:center;
+  padding:24px 0;position:relative;z-index:2;
+}
+.mc-quote{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.4rem,2.2vw,1.7rem);
+  font-weight:300;line-height:1.6;
+  color:var(--ink);
+  text-align:center;letter-spacing:-.005em;
+}
+.mc-quote em{
+  font-style:italic;
+  font-family:'Cormorant Garamond','Noto Serif TC',serif;
+  color:var(--gold-deep);font-weight:500;
+}
+
+.mc-foot{
+  position:relative;z-index:2;
+  padding-top:20px;
+  border-top:1px solid rgba(184,153,104,.25);
+  display:flex;align-items:center;gap:14px;
+}
+.mc-seal{
+  width:34px;height:34px;border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 35%, var(--gold-soft), var(--gold) 60%, var(--gold-deep) 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4), 0 2px 10px rgba(184,153,104,.3);
+  flex-shrink:0;position:relative;
+}
+.mc-seal::after{
+  content:'';position:absolute;inset:-3px;border-radius:50%;
+  border:1px solid rgba(184,153,104,.4);
+}
+.mc-sig{
+  flex:1;
+  font-family:'Noto Serif TC',serif;
+  font-size:.95rem;color:var(--ink);
+  font-weight:400;letter-spacing:.04em;
+}
+.mc-est{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.78rem;color:var(--ink-3);
+  letter-spacing:.06em;
+}
+
+/* 三件事的並列 */
+.about-trio{
+  font-family:'Cormorant Garamond','Noto Serif TC',serif;
+  font-style:italic;
+  color:var(--gold-deep);
+  font-weight:500;
+  font-size:1.02em;
+  background:linear-gradient(180deg,transparent 75%,rgba(184,153,104,.18) 75%);
+  padding:0 2px;
+  letter-spacing:.02em;
+}
+
+.about-text .eyebrow{margin-bottom:24px}
+.about-text h3{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.9rem,3.6vw,2.7rem);
+  font-weight:300;color:var(--ink);line-height:1.3;
+  margin-bottom:32px;letter-spacing:-.008em;
+}
+.about-text h3 em{font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-weight:400}
+.about-text p{color:var(--ink-2);margin-bottom:24px;line-height:2;font-weight:300}
+.about-text .signature{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.8rem;color:var(--gold-deep);
+  margin-top:40px;font-weight:400;
+}
+.cred-row{
+  margin-top:48px;padding-top:36px;border-top:1px solid var(--gold-line);
+  display:grid;grid-template-columns:repeat(1,1fr);gap:24px;
+}
+@media(min-width:520px){.cred-row{grid-template-columns:repeat(3,1fr)}}
+.cred .lbl{
+  font-size:.68rem;letter-spacing:.22em;color:var(--gold-deep);
+  text-transform:uppercase;margin-bottom:8px;font-weight:500;
+}
+.cred .val{font-family:'Noto Serif TC',serif;font-size:.98rem;color:var(--ink);font-weight:400;line-height:1.55}
+
+/* =========================================================
+   CTA — 邀請式收尾
+   ========================================================= */
+.invitation{
+  background:var(--paper-2);
+  position:relative;overflow:hidden;
+}
+.invitation::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(800px 500px at 50% 0%, rgba(184,153,104,.15), transparent 60%),
+    radial-gradient(600px 400px at 50% 100%, rgba(184,153,104,.08), transparent 60%);
+}
+.invitation-body{position:relative;z-index:2;text-align:center;max-width:780px;margin:0 auto;padding:0 var(--gutter)}
+.invitation .eyebrow{margin-bottom:32px}
+.invitation h2{
+  font-family:'Noto Serif TC',serif;
+  font-size:clamp(2.2rem,5vw,3.8rem);
+  font-weight:300;line-height:1.25;
+  color:var(--ink);margin-bottom:32px;letter-spacing:-.012em;
+}
+.invitation h2 em{font-style:italic;font-family:'Cormorant Garamond',serif;color:var(--gold-deep);font-weight:400}
+.invitation .lead{max-width:560px;margin:0 auto 48px}
+
+.invitation-options{
+  margin-top:80px;padding-top:48px;border-top:1px solid var(--gold-line);
+  display:grid;gap:1px;background:var(--gold-line);
+  border:1px solid var(--gold-line);
+  text-align:left;
+}
+@media(min-width:760px){.invitation-options{grid-template-columns:repeat(3,1fr)}}
+.opt{
+  padding:36px 30px;background:var(--paper);
+  display:flex;flex-direction:column;gap:14px;
+  text-decoration:none;color:inherit;
+  transition:background .35s var(--ease);
+  min-height:240px;
+}
+.opt:hover{background:var(--paper-2)}
+.opt .opt-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.4rem;color:var(--gold-deep);
+}
+.opt h5{
+  font-family:'Noto Serif TC',serif;
+  font-size:1.2rem;color:var(--ink);font-weight:400;letter-spacing:-.005em;
+}
+.opt p{font-size:.88rem;color:var(--ink-2);line-height:1.85;flex:1}
+.opt-list{
+  list-style:none;margin:4px 0 0;padding:0;
+  display:flex;flex-direction:column;gap:6px;flex:1;
+}
+.opt-list li{
+  font-size:.83rem;color:var(--ink-2);line-height:1.5;
+  font-family:'Noto Serif TC',serif;font-weight:300;
+  padding-left:14px;position:relative;
+}
+.opt-list li::before{
+  content:'·';position:absolute;left:0;top:-2px;
+  color:var(--gold-deep);font-size:1.2rem;line-height:1;
+}
+.opt .lk{
+  margin-top:8px;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:.95rem;color:var(--gold-deep);
+  display:flex;align-items:center;gap:8px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer{
+  padding:96px var(--gutter) 48px;
+  border-top:1px solid var(--gold-line);
+  background:var(--paper-2);
+}
+.foot-grid{
+  max-width:var(--max-w);margin:0 auto;
+  display:grid;gap:56px;grid-template-columns:1fr;
+}
+@media(min-width:760px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+.foot-brand{display:flex;flex-direction:column;gap:20px;max-width:340px}
+.foot-brand .brand{margin-bottom:0}
+.foot-brand p{font-size:.88rem;color:var(--ink-2);line-height:1.95;font-weight:300}
+.foot-col h6{
+  font-size:.7rem;color:var(--gold-deep);
+  letter-spacing:.22em;text-transform:uppercase;
+  margin-bottom:22px;font-weight:500;
+}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.foot-col a{color:var(--ink-2);text-decoration:none;font-size:.9rem;transition:color .3s;font-weight:300}
+.foot-col a:hover{color:var(--gold-deep)}
+.foot-bottom{
+  max-width:var(--max-w);margin:72px auto 0;
+  padding-top:28px;border-top:1px solid var(--gold-line);
+  display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;
+  font-size:.78rem;color:var(--ink-3);font-weight:300;
+}
+.foot-bottom .social{display:flex;gap:14px}
+.foot-bottom .social a{
+  width:38px;height:38px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid var(--gold-line);color:var(--ink-2);
+  transition:all .3s var(--ease);text-decoration:none;
+  font-size:.78rem;letter-spacing:.05em;
+}
+.foot-bottom .social a:hover{border-color:var(--gold);color:var(--gold-deep);transform:translateY(-2px);background:var(--paper)}
+
+/* =========================================================
+   Animations
+   ========================================================= */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal.d1{transition-delay:.08s}
+.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}
+.reveal.d4{transition-delay:.32s}
+
+/* 滾動條 */
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:var(--paper)}
+::-webkit-scrollbar-thumb{background:rgba(184,153,104,.25);border-radius:10px;border:2px solid var(--paper)}
+::-webkit-scrollbar-thumb:hover{background:rgba(184,153,104,.4)}
+::selection{background:rgba(184,153,104,.3);color:var(--ink)}
+
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a href="#" class="brand">
+    <span class="brand-mark"><img src="assets/logo.png" alt="AI Persona logo" /></span>
+    <span class="brand-name"><em>AI</em>&nbsp;<em>PERSONA</em></span>
+  </a>
+  <div class="nav-links">
+    <a href="#manifesto">理念</a>
+    <a href="#services">服務</a>
+    <a href="#cases">案例</a>
+    <a href="#journal">商業觀察</a>
+    <a href="#about">關於</a>
+  </div>
+  <a href="#invitation" class="nav-cta" id="navCta" style="display:none">
+    一起聊聊
+    <span style="font-family:'Cormorant Garamond',serif">→</span>
+  </a>
+  <button class="menu-btn" id="menuBtn" aria-label="選單">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#manifesto">理念</a>
+  <a href="#services">服務</a>
+  <a href="#cases">案例</a>
+  <a href="#journal">商業觀察</a>
+  <a href="#about">關於</a>
+  <a href="#invitation" class="nav-cta">一起聊聊 →</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <span class="hero-orb a"></span>
+  <span class="hero-orb b"></span>
+
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-meta-top reveal">
+        <span class="label">Established · Taipei · 2026</span>
+        <span class="label label-soft">Issue Nº 01</span>
+      </div>
+
+      <div class="eyebrow reveal" style="margin-bottom:32px">AI ／ Brand ／ Human</div>
+
+      <h1 class="reveal d1">
+        <span class="br">你<em>很專業</em>。</span>
+        <span class="br">但市場，</span>
+        <span class="br">還沒真正<em>看見你</em>。</span>
+      </h1>
+
+      <p class="hero-sub reveal d2">
+        你不是不夠專業。<br>
+        只是市場，還沒真正理解你的價值。<br><br>
+        我們用 AI、品牌策略與視覺導演，
+        把你的專業，
+        <strong>翻譯成市場願意相信的語言</strong>。
+      </p>
+
+      <div class="cta-row reveal d3">
+        <a href="#invitation" class="btn btn-primary">
+          開始你的 AI 定位探索
+          <span class="arrow">→</span>
+        </a>
+        <a href="#services" class="btn btn-ghost">看看我們怎麼幫你</a>
+      </div>
+
+      <p class="hero-fit reveal d3">
+        <span class="hero-fit-lbl">適合</span>
+        顧問　·　講師　·　健康產業　·　創業者　·　專業工作者
+      </p>
+
+      <div class="hero-trust reveal d4">
+        <div class="trust-item"><span class="num">03</span><span class="lbl">核心服務體系</span></div>
+        <div class="trust-item"><span class="num">120<em style="font-family:'Cormorant Garamond';font-style:italic;font-size:.7em;color:var(--gold)">+</em></span><span class="lbl">合作品牌與個人</span></div>
+        <div class="trust-item"><span class="num">2.4<em style="font-family:'Cormorant Garamond';font-style:italic;font-size:.7em;color:var(--gold)">×</em></span><span class="lbl">客戶平均成交提升</span></div>
+        <div class="trust-item"><span class="num">∞</span><span class="lbl">每一個人的可能性</span></div>
+      </div>
+    </div>
+
+    <aside class="hero-aside reveal d3">
+      <div class="ai-scope">
+        <div class="ai-grid"></div>
+        <div class="ai-orb-soft"></div>
+
+        <div class="ai-status">
+          <span class="ai-dot"></span>
+          <span>AI 正在閱讀你的品牌訊號</span>
+        </div>
+
+        <!-- Card 1 · AI Persona -->
+        <article class="hv-card hv-persona">
+          <div class="hv-head">
+            <span class="hv-tag"><span class="hv-tag-dot"></span>AI Persona</span>
+            <span class="hv-meta">analysis 03</span>
+          </div>
+          <div class="hv-section-label">你的品牌核心</div>
+          <h4 class="hv-name">「<em>光的編譯者</em>」</h4>
+          <p class="hv-body">把抽象的價值，<br>翻譯成市場願意相信的語言。</p>
+          <div class="hv-bar">
+            <div class="hv-bar-track"><span class="hv-bar-fill"></span></div>
+            <span class="hv-bar-num">97<span class="hv-pct">%</span></span>
+          </div>
+          <div class="hv-corner-glyph"></div>
+        </article>
+
+        <!-- Card 2 · Sales Flow（垂直旅程，更顯儀式感） -->
+        <article class="hv-card hv-flow">
+          <div class="hv-head">
+            <span class="hv-tag"><span class="hv-tag-dot"></span>Sales Flow</span>
+            <span class="hv-meta">04 stages</span>
+          </div>
+          <div class="hv-section-label">客戶旅程</div>
+          <div class="hv-journey-v">
+            <div class="jrow"><span class="jstep">共鳴</span><span class="jline"></span></div>
+            <div class="jrow"><span class="jstep">理解</span><span class="jline"></span></div>
+            <div class="jrow"><span class="jstep">信任</span><span class="jline"></span></div>
+            <div class="jrow"><span class="jstep active">行動</span><span class="jdot"></span></div>
+          </div>
+        </article>
+
+        <!-- Card 3 · Brand Voice（三條 AI 量表，取代橫排 pill） -->
+        <article class="hv-card hv-voice">
+          <div class="hv-head">
+            <span class="hv-tag"><span class="hv-tag-dot"></span>Brand Voice</span>
+          </div>
+          <div class="hv-section-label">你的品牌感受</div>
+          <div class="hv-meters">
+            <div class="meter">
+              <span class="meter-lbl">溫度感</span>
+              <span class="meter-track"><span class="meter-fill" style="--w:88%"></span></span>
+              <span class="meter-num">88</span>
+            </div>
+            <div class="meter">
+              <span class="meter-lbl">專業感</span>
+              <span class="meter-track"><span class="meter-fill" style="--w:94%"></span></span>
+              <span class="meter-num">94</span>
+            </div>
+            <div class="meter">
+              <span class="meter-lbl">未來感</span>
+              <span class="meter-track"><span class="meter-fill" style="--w:81%"></span></span>
+              <span class="meter-num">81</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </aside>
+  </div>
+</header>
+
+<!-- ============ MANIFESTO（暗場 20%） ============ -->
+<section class="manifesto" id="manifesto">
+  <div class="manifesto-body">
+    <span class="label">Our Belief</span>
+    <p class="quote reveal">
+      AI 不是用來<em>取代你</em>。<br>
+      AI 是用來，<br>
+      讓世界看見<em>更完整的</em>那一個你。
+    </p>
+    <p class="sig reveal d2">小鹿 AI 商業落地實驗室 ／ 品牌信念</p>
+  </div>
+</section>
+
+<!-- ============ 方法論四欄 ============ -->
+<section style="padding-top:0;padding-bottom:clamp(96px,14vw,180px)">
+  <div class="wrap" style="padding-top:clamp(96px,14vw,180px)">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Why AI PERSONA</div>
+      <h2>不只是會用 AI，<br>而是懂得<em>怎麼把人說清楚</em>。</h2>
+      <p class="lead">同樣是 AI，給不同的人用，結果差非常多。我們的差別，在這四件事上。</p>
+    </div>
+
+    <div class="method-grid">
+      <div class="method reveal">
+        <span class="roman">i.</span>
+        <h4>從你開始，<br>不從工具開始</h4>
+        <p>我們會先花時間，認識你是誰——你的節奏、你的價值，還有你最希望被怎麼看見。<br><br>工具只是放大器，<em>而你，才是這一切的開始</em>。</p>
+      </div>
+      <div class="method reveal d1">
+        <span class="roman">ii.</span>
+        <h4>把策略，<br>變成看得見的結果</h4>
+        <p>許多人不是不夠優秀，而是還沒被市場好好理解。<br><br>我們重新整理你的定位、形象與品牌感，<em>讓市場更快看懂你，也更自然地願意相信你</em>。</p>
+      </div>
+      <div class="method reveal d2">
+        <span class="roman">iii.</span>
+        <h4>美感不是裝飾，<br>是讓人想停下來的理由</h4>
+        <p>在滑一下就離開的時代，第一眼，正在決定別人願不願意認識你。<br><br>美感從來不是裝飾——<em>而是信任感，最開始的形狀</em>。</p>
+      </div>
+      <div class="method reveal d3">
+        <span class="roman">iv.</span>
+        <h4>把複雜變簡單，<br>讓客戶第一眼就懂你</h4>
+        <p>客戶不是不夠聰明，而是還沒有人，真正把你的價值說清楚。<br><br>我們把複雜，<em>翻譯成市場「一眼就懂」的語言</em>。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ============ 三大服務 ============ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Three Ways We Work</div>
+      <h2>從「<em>你是誰</em>」，<br>到「<em>別人為什麼會選你</em>」——<br>三段旅程。</h2>
+      <p class="lead">不論你正在哪一段，我們都能從這裡開始陪你走。</p>
+    </div>
+
+    <!-- 服務 01 -->
+    <article class="service">
+      <div class="s-text reveal">
+        <div class="s-num"><span class="roman">Nº I</span> · AI Persona</div>
+        <h3>
+          <span class="sub">AI 個人定位探索</span>
+          找回那個<em>「應該被看見」</em>的自己。
+        </h3>
+        <p class="s-pain">「明明做了很多，卻不知道該怎麼一句話介紹自己。」</p>
+        <p class="s-body">
+          你不是不夠好，是走得太快，沒時間整理自己。
+          我們用 <strong style="font-weight:500;color:var(--ink)">AI 深度問答 + 一對一品牌對話</strong>，
+          把你過去走過的每一步、累積的每一份專業，
+          整理成一張清楚的「市場座標」。
+          你會知道——該對誰說話、用什麼語氣說、為什麼別人會選你。
+        </p>
+
+        <div class="s-includes">
+          <div class="lbl">服務內容</div>
+          <ul>
+            <li><span class="n">01</span><div><strong>AI 深度定位問答</strong><span>70 題情境式設計，5–10 分鐘給你第一張內在輪廓。</span></div></li>
+            <li><span class="n">02</span><div><strong>AI 人格 × 天賦解碼</strong><span>把模糊的「我好像擅長…」，變成清楚的市場價值。</span></div></li>
+            <li><span class="n">03</span><div><strong>一句話品牌定位</strong><span>三個核心關鍵字、一句別人記得住的自我介紹。</span></div></li>
+            <li><span class="n">04</span><div><strong>五個內容方向 ＋ 社群語氣建議</strong><span>不用再煩惱「今天要發什麼」。</span></div></li>
+          </ul>
+        </div>
+
+        <p class="s-fit">想經營個人品牌的創業者、講師、顧問、自由工作者，或正在轉職的專業人士。</p>
+
+        <a href="#invitation" class="btn btn-ghost">預約一場定位對話 <span class="arrow">→</span></a>
+      </div>
+
+      <div class="s-visual s-visual-img reveal d1">
+        <img src="assets/service-01-persona.jpg" alt="AI Persona 個人定位探索" class="s-img" />
+      </div>
+    </article>
+
+    <!-- 服務 02 · 升級為 AI Persona 品牌角色宇宙 -->
+    <article class="service reverse">
+      <div class="s-text reveal">
+        <div class="s-num"><span class="roman">Nº II</span> · Brand Persona Universe</div>
+        <h3>
+          <span class="sub">AI Persona 品牌角色宇宙</span>
+          你的形象，<br>正在決定別人<em>願不願意相信你</em>。
+        </h3>
+        <p class="s-pain">「別人不是先認識你，<br>而是先感受到你的品牌存在感。」</p>
+        <p class="s-body">
+          在滑一下就離開的時代，真正重要的，不是一張好看的照片，而是一個能讓人<strong style="font-weight:500;color:var(--ink)">持續被記得、持續被信任</strong>的品牌存在感。
+          <br><br>
+          我們用 <strong style="font-weight:500;color:var(--ink)">AI Persona 品牌角色宇宙</strong>，為你建立一個能隨情緒、故事與生活持續延伸的品牌母體——同一個你、同一種氣質、同一個世界觀。
+          <br><br>
+          <strong style="font-weight:500;color:var(--ink)">不是拍一次的形象，而是能一直長出來的品牌。</strong>
+        </p>
+
+        <div class="s-includes">
+          <div class="lbl">服務內容</div>
+          <ul>
+            <li><span class="n">01</span><div><strong>AI Persona 品牌角色母體</strong><span>建立你的品牌角色 DNA——讓未來所有內容，都能從這裡長出來。</span></div></li>
+            <li><span class="n">02</span><div><strong>AI 多場景內容生成</strong><span>不是一次拍攝，而是能隨情緒、生活與故事，持續生長的視覺。</span></div></li>
+            <li><span class="n">03</span><div><strong>品牌氣質與視覺語言</strong><span>光線、色調、氛圍、構圖——建立讓人一眼就認得出的品牌存在感。</span></div></li>
+            <li><span class="n">04</span><div><strong>AI Persona 內容延伸系統</strong><span>短影音、社群、貼文、封面——讓每一處的你，都是同一個你。</span></div></li>
+          </ul>
+        </div>
+
+        <p class="s-fit">講師、顧問、創業者、業務、健康業，以及任何「品牌存在感決定信任度」的個人品牌。</p>
+
+        <a href="#invitation" class="btn btn-ghost">預約一場品牌角色對話 <span class="arrow">→</span></a>
+      </div>
+
+      <div class="s-visual s-visual-img reveal d1">
+        <img src="assets/service-02-persona-universe.jpg" alt="AI Persona 品牌角色宇宙" class="s-img" />
+      </div>
+    </article>
+
+    <!-- 服務 03 · AI 商業轉譯系統 · 升級為互動式理解旅程 -->
+    <article class="service">
+      <div class="s-text reveal">
+        <div class="s-num"><span class="roman">Nº III</span> · Business Translation</div>
+        <h3>
+          <span class="sub">AI 商業轉譯系統</span>
+          把專業，<br>變成客戶聽得懂的<em>選擇</em>。
+        </h3>
+        <p class="s-tagline">不是讓客戶被<span>說服</span>，而是讓<em>理解，自然發生</em>。</p>
+
+        <p class="s-pain">「不是客戶沒需求——<br>而是他們，還沒看見自己。」</p>
+        <p class="s-body">
+          客戶遲遲不行動，往往不是因為不需要，而是還沒理解——你的專業，跟他們的人生，到底有什麼關係。
+          <br><br>
+          我們把成交流程，重新設計成 <strong style="font-weight:500;color:var(--ink)">AI Persona 互動體驗</strong>。讓客戶在對話、探索與遊戲化互動之間，看見自己的盲點、明白真實的需求，也自然走進那個「現在該行動」的時刻。
+          <br><br>
+          <strong style="font-weight:500;color:var(--ink)">當理解開始發生，行動就會變得自然。</strong>
+          <br><br>
+          這不是一張一次性的問卷，而是一個能透過 <strong style="font-weight:500;color:var(--ink)">LINE 持續互動、持續被理解</strong>的 AI Persona 長期互動空間——你不再需要重複解釋，新人也能複製同樣的成交節奏。
+        </p>
+
+        <div class="s-includes">
+          <div class="lbl">服務內容</div>
+          <ul>
+            <li><span class="n">01</span><div><strong>AI Persona 互動探索</strong><span>讓客戶在對話與探索中，慢慢理解真正的自己與需求。</span></div></li>
+            <li><span class="n">02</span><div><strong>AI 引導式成交體驗</strong><span>不是說服，而是讓理解自然帶出行動。</span></div></li>
+            <li><span class="n">03</span><div><strong>品牌互動體驗設計</strong><span>把專業，變成客戶願意主動參與的互動過程。</span></div></li>
+            <li><span class="n">04</span><div><strong>團隊可複製互動系統</strong><span>降低溝通成本，讓新人也能提供一致的成交節奏。</span></div></li>
+          </ul>
+        </div>
+
+        <p class="s-fit">業務團隊、健康業、美業、財富顧問，以及任何想用「互動」取代「推銷」的品牌與團隊。</p>
+
+        <a href="#invitation" class="btn btn-ghost">為團隊設計一次 AI 互動體驗 <span class="arrow">→</span></a>
+      </div>
+
+      <div class="s-visual s-visual-img reveal d1">
+        <img src="assets/service-03-journey.jpg" alt="AI Persona 理解旅程" class="s-img" />
+      </div>
+    </article>
+
+    <!-- ============ Service Nº III · 完整體驗預覽 Banner ============ -->
+    <div class="s-preview reveal">
+      <div class="s-preview-head">
+        <div class="s-preview-meta">
+          <span class="s-preview-line"></span>
+          <span class="s-preview-label">Live Preview ／ Nº III</span>
+          <span class="s-preview-line"></span>
+        </div>
+        <h4 class="s-preview-title">這就是客戶會看到的<br><em>AI Persona 體驗</em>。</h4>
+        <p class="s-preview-desc">不是一張問卷，而是一場為自己量身設計的旅程——從互動、理解、解答到行動，AI 讓改變，自然發生。</p>
+      </div>
+      <figure class="s-preview-frame">
+        <img src="assets/service-03-persona-core.jpg" alt="AI Persona Core 客戶體驗預覽" loading="lazy" />
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ============ Persona Journeys ============ -->
+<section class="cases" id="cases">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Persona Journeys</div>
+      <h2>被<em>重新理解</em>的人們，<br>開始創造改變。</h2>
+      <p class="lead">每一個品牌背後，都是一段重新理解自己的旅程。<br>我們用 AI 陪伴他們，找到定位、建立角色、轉譯價值——讓改變，自然發生。</p>
+    </div>
+
+    <div class="journey-grid">
+      <a href="#" class="journey reveal">
+        <div class="j-cover">
+          <img class="j-img" src="assets/journey-01-health-coach.png" alt="健康顧問 Persona Journey" loading="lazy" />
+          <div class="j-overlay"></div>
+          <div class="j-head">
+            <span class="j-num">Nº 01</span>
+            <span class="j-role"><span class="ch">健康顧問</span><span class="en">Health Coach</span></span>
+          </div>
+          <div class="j-transform">
+            <div class="t-row"><span class="t-lbl">從</span><span class="t-txt">一直介紹產品</span></div>
+            <div class="t-arrow">↓</div>
+            <div class="t-row to"><span class="t-lbl">到</span><span class="t-txt"><em>客戶開始主動想理解自己</em></span></div>
+          </div>
+        </div>
+        <div class="j-system">
+          <span class="sys-icon">♡</span>
+          <span class="sys-name">AI Persona 健康陪跑系統</span>
+          <span class="sys-arr">→</span>
+        </div>
+        <p class="j-story"><strong>健康顧問 × AI Persona 健康陪跑</strong><br>客戶不再只是被介紹產品，而是在 AI 互動中，開始理解自己的身體、壓力與生活節奏。</p>
+      </a>
+
+      <a href="#" class="journey reveal d1">
+        <div class="j-cover">
+          <img class="j-img" src="assets/journey-02-wealth-advisor.png" alt="財富顧問 Persona Journey" loading="lazy" />
+          <div class="j-overlay"></div>
+          <div class="j-head">
+            <span class="j-num">Nº 02</span>
+            <span class="j-role"><span class="ch">財富顧問</span><span class="en">Wealth Advisor</span></span>
+          </div>
+          <div class="j-transform">
+            <div class="t-row"><span class="t-lbl">從</span><span class="t-txt">理財像在推銷</span></div>
+            <div class="t-arrow">↓</div>
+            <div class="t-row to"><span class="t-lbl">到</span><span class="t-txt"><em>第一次感覺被真正理解</em></span></div>
+          </div>
+        </div>
+        <div class="j-system">
+          <span class="sys-icon">$</span>
+          <span class="sys-name">AI Persona 財富人格探索</span>
+          <span class="sys-arr">→</span>
+        </div>
+        <p class="j-story"><strong>財富顧問 × 財富人格探索</strong><br>從「害怕被推銷」，變成「第一次理解自己的金錢模式」——一場關於信任的對話，從這裡開始。</p>
+      </a>
+
+      <a href="#" class="journey reveal d2">
+        <div class="j-cover">
+          <img class="j-img" src="assets/journey-03-entrepreneur.png" alt="創業者／講師 Persona Journey" loading="lazy" />
+          <div class="j-overlay"></div>
+          <div class="j-head">
+            <span class="j-num">Nº 03</span>
+            <span class="j-role"><span class="ch">創業者 ／ 講師</span><span class="en">Entrepreneur · Coach</span></span>
+          </div>
+          <div class="j-transform">
+            <div class="t-row"><span class="t-lbl">從</span><span class="t-txt">不知道怎麼介紹自己</span></div>
+            <div class="t-arrow">↓</div>
+            <div class="t-row to"><span class="t-lbl">到</span><span class="t-txt"><em>開始擁有自己的品牌存在感</em></span></div>
+          </div>
+        </div>
+        <div class="j-system">
+          <span class="sys-icon">✦</span>
+          <span class="sys-name">AI Persona 品牌角色宇宙</span>
+          <span class="sys-arr">→</span>
+        </div>
+        <p class="j-story"><strong>創業者 × 品牌角色宇宙</strong><br>從「內容很多卻很亂」，變成「擁有一致的語氣、視覺與品牌存在感」——她終於知道自己該被怎麼看見。</p>
+      </a>
+    </div>
+
+    <div class="journey-more reveal d3">
+      <a href="#" class="btn btn-ghost">
+        查看更多 Persona Journeys
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ============ AI 商業觀察 ============ -->
+<section class="journal-sec" id="journal" style="padding-bottom:clamp(96px,14vw,180px)">
+  <div class="wrap" style="padding-top:clamp(96px,14vw,180px)">
+    <div class="sec-head reveal">
+      <div class="eyebrow">AI Business Field Notes</div>
+      <h2>AI 商業<em>觀察</em>。</h2>
+      <p class="lead">不是追 AI 熱潮——而是研究：<br>AI 如何真正改變品牌、成交與客戶關係。</p>
+    </div>
+
+    <div class="journal-grid">
+      <article class="journal reveal">
+        <div class="journal-meta">
+          <span class="cat">內容策略</span>
+          <span class="note-id">Field Note 01</span>
+        </div>
+        <h4>大家都在做 AI，<br>為什麼你的內容<br>還是<em>沒人看</em>？</h4>
+        <p>AI 不缺內容。現在真正缺的，是「讓人停下來」的感覺。不是產量問題——而是，<strong>你的內容裡有沒有「你」</strong>。</p>
+        <span class="more">閱讀全文 →</span>
+      </article>
+
+      <article class="journal reveal d1">
+        <div class="journal-meta">
+          <span class="cat">成交體驗</span>
+          <span class="note-id">Field Note 02</span>
+        </div>
+        <h4>AI 問答，<br>正在改變<em>客戶成交流程</em>。</h4>
+        <p>越來越多客戶，不想先聽推銷，而是想先了解自己。<strong>互動式 AI 體驗，會逐步取代傳統介紹頁與制式銷售</strong>。</p>
+        <span class="more">閱讀全文 →</span>
+      </article>
+
+      <article class="journal reveal d2">
+        <div class="journal-meta">
+          <span class="cat">品牌洞察</span>
+          <span class="note-id">Field Note 03</span>
+        </div>
+        <h4>客戶不是不買，<br>是還沒感覺<br>「<em>這跟我有關</em>」。</h4>
+        <p>現在最強的品牌，不是資訊最多——而是能最快讓客戶走進「自己的故事」裡。<strong>AI 最強的地方，不是生成，而是讓客戶參與</strong>。</p>
+        <span class="more">閱讀全文 →</span>
+      </article>
+
+      <article class="journal reveal d3">
+        <div class="journal-meta">
+          <span class="cat">AI 分身</span>
+          <span class="note-id">Field Note 04</span>
+        </div>
+        <h4>未來的 LINE 官方帳號，<br><em>不只是客服</em>。</h4>
+        <p>而是品牌的 AI 分身——會聊天、會分析、會互動、會陪客戶探索。<strong>未來留下來的，不是粉絲最多的人，而是最容易建立信任的人</strong>。</p>
+        <span class="more">閱讀全文 →</span>
+      </article>
+
+      <article class="journal reveal d1">
+        <div class="journal-meta">
+          <span class="cat">個人品牌</span>
+          <span class="note-id">Field Note 05</span>
+        </div>
+        <h4>AI 個人品牌，<br>正在從「形象」<br>變成「<em>角色</em>」。</h4>
+        <p>未來不只是拍形象照——而是建立一個能持續產出內容、持續被記住的<strong>品牌角色宇宙</strong>。一次塑形，長期生長。</p>
+        <span class="more">閱讀全文 →</span>
+      </article>
+
+      <article class="journal reveal d2">
+        <div class="journal-meta">
+          <span class="cat">客戶旅程</span>
+          <span class="note-id">Field Note 06</span>
+        </div>
+        <h4>以前是客戶找產品。<br>現在是客戶<br><em>先想了解自己</em>。</h4>
+        <p>人格分析、健康解碼、財富測驗、關係探索——這些互動體驗的背後，其實是在建立一個<strong>全新的成交入口</strong>。</p>
+        <span class="more">閱讀全文 →</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="gold-line"></div>
+
+<!-- ============ WHY AI PERSONA · Living Experiment ============ -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <!-- 左：創辦人肖像 ＋ Manifesto 疊圖 -->
+    <div class="founder-portrait reveal">
+      <img src="assets/founder-portrait.jpg" alt="小鹿 AI Lab 創辦人" />
+
+      <!-- 頂部標籤 -->
+      <div class="fp-top">
+        <span class="fp-tag">Manifesto · Nº 01</span>
+        <span class="fp-status"><span class="fp-dot"></span>Living Experiment</span>
+      </div>
+
+      <!-- 中央 Manifesto 引言 -->
+      <p class="fp-quote">「真正稀缺的，<br>從來不是<em>AI</em>——<br>而是還像<em>自己</em>的<br>那個聲音。」</p>
+
+      <!-- 底部簽章 -->
+      <div class="fp-caption">
+        <span class="fp-label">Founder · 小鹿</span>
+        <span class="fp-est">Est. 2026 · Taipei</span>
+      </div>
+    </div>
+
+    <!-- 右：WHY AI PERSONA · 為什麼做這件事 -->
+    <div class="about-text">
+      <div class="eyebrow reveal">WHY AI PERSONA</div>
+      <h3 class="reveal d1">AI 越來越強，<br>但「<em>真實感</em>」<br>反而變得更<em>稀缺</em>。</h3>
+
+      <p class="reveal d2">AI PERSONA，是一個<strong style="font-weight:500;color:var(--ink)">正在發生中</strong>的 AI 商業實驗室。</p>
+
+      <p class="reveal d2">我們關注的，不只是 AI 工具——而是 AI 如何改變一件事：<br>
+      <strong style="font-weight:500;color:var(--ink)">品牌怎麼建立、客戶怎麼體驗、成交怎麼發生，以及人與人之間的信任，怎麼重新被建立。</strong></p>
+
+      <p class="reveal d3">這段時間，我們把三個方向，慢慢變成真正能落地的服務——<br>
+      <em class="about-trio">AI 個人定位探索　／　AI Persona 品牌角色宇宙　／　AI 商業轉譯系統</em>。</p>
+
+      <p class="reveal d3">而我們也開始發現一件事——<br>
+      未來真正有價值的，不是最會用 AI 的人，<br>
+      而是最懂得用 AI 建立 <strong style="font-weight:500;color:var(--ink)">信任感、品牌感與客戶體驗</strong> 的人。</p>
+
+      <p class="reveal d4" style="font-family:'Noto Serif TC',serif;font-size:1.05rem;color:var(--ink);font-weight:400;margin-top:32px"><strong style="font-weight:500">這個實驗，現在才剛開始。</strong></p>
+
+      <p class="signature reveal d4">—— AI PERSONA</p>
+
+      <div class="cred-row reveal d4">
+        <div class="cred">
+          <div class="lbl">Status</div>
+          <div class="val">Living Experiment<br>實驗進行中</div>
+        </div>
+        <div class="cred">
+          <div class="lbl">Focus</div>
+          <div class="val">AI × 品牌<br>× 客戶體驗</div>
+        </div>
+        <div class="cred">
+          <div class="lbl">Origin</div>
+          <div class="val">彩鈺品牌顧問<br>2026 · Taipei</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INVITATION · 低壓力入口 ============ -->
+<section class="invitation" id="invitation">
+  <div class="invitation-body">
+    <div class="eyebrow center reveal">Start Light</div>
+    <h2 class="reveal d1">你不用先決定什麼。<br>先試試看——<br><em>AI 能不能，讓你被理解</em>。</h2>
+    <p class="lead reveal d2">不用先決定要不要做品牌。<br>先透過一次 AI 探索，看看現在的你，最適合往哪裡前進。</p>
+
+    <div class="cta-row reveal d3" style="justify-content:center;margin-bottom:0">
+      <a href="https://lin.ee/wNiRx2R" target="_blank" rel="noopener noreferrer" class="btn btn-primary">免費 AI Persona 探索 <span class="arrow">→</span></a>
+      <a href="https://lin.ee/wNiRx2R" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">加入 LINE，慢慢認識我們</a>
+    </div>
+
+    <div class="invitation-options reveal d4">
+      <a href="https://lin.ee/wNiRx2R" target="_blank" rel="noopener noreferrer" class="opt">
+        <span class="opt-num">i.</span>
+        <h5>五分鐘 AI Persona 探索</h5>
+        <p>透過簡單問答，快速看見你的品牌方向、內容風格與適合的定位。</p>
+        <span class="lk">開始探索 →</span>
+      </a>
+      <a href="https://lin.ee/wNiRx2R" target="_blank" rel="noopener noreferrer" class="opt">
+        <span class="opt-num">ii.</span>
+        <h5>加入 LINE 看 AI 實驗</h5>
+        <p>我們會不定期分享：</p>
+        <ul class="opt-list">
+          <li>AI 品牌觀察</li>
+          <li>客戶體驗設計</li>
+          <li>AI 成交流程</li>
+          <li>AI Persona 測試</li>
+        </ul>
+        <span class="lk">加入 LINE →</span>
+      </a>
+      <a href="https://lin.ee/wNiRx2R" target="_blank" rel="noopener noreferrer" class="opt">
+        <span class="opt-num">iii.</span>
+        <h5>預約 1:1 AI 品牌對話</h5>
+        <p>如果你已經有品牌、產品或服務，我們可以一起看看 AI 能怎麼幫你降低溝通成本、提升成交效率。</p>
+        <span class="lk">預約對話 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <a href="#" class="brand">
+        <span class="brand-mark"><img src="assets/logo.png" alt="AI Persona logo" /></span>
+        <span class="brand-name"><em>AI</em>&nbsp;<em>PERSONA</em></span>
+      </a>
+      <p><strong style="font-weight:500;color:var(--ink)">AI × 品牌 × 客戶體驗</strong>——<br>讓好的專業，更容易被理解。</p>
+      <p style="font-size:.78rem;color:var(--ink-3)">彩鈺品牌顧問有限公司 ／ 小鹿 AI Lab ／ Living Experiment</p>
+    </div>
+    <div class="foot-col">
+      <h6>Services</h6>
+      <ul>
+        <li><a href="#services">Nº I · AI Persona 定位</a></li>
+        <li><a href="#services">Nº II · 品牌角色宇宙</a></li>
+        <li><a href="#services">Nº III · 商業轉譯系統</a></li>
+        <li><a href="#services">AI 商業轉譯（B2B）</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h6>Explore</h6>
+      <ul>
+        <li><a href="#cases">案例</a></li>
+        <li><a href="#journal">AI 商業觀察</a></li>
+        <li><a href="#about">關於 AI PERSONA</a></li>
+        <li><a href="#invitation">預約對話</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h6>Connect</h6>
+      <ul>
+        <li><a href="https://lin.ee/wNiRx2R" target="_blank" rel="noopener noreferrer">加入 LINE 社群</a></li>
+        <li><a href="#">追蹤 Instagram</a></li>
+        <li><a href="#">訂閱電子報</a></li>
+        <li><a href="mailto:yabysung2@gmail.com">yabysung2@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 彩鈺品牌顧問有限公司 ／ 小鹿 AI 商業落地實驗室. All rights reserved.</span>
+    <div class="social">
+      <a href="https://lin.ee/wNiRx2R" target="_blank" rel="noopener noreferrer" aria-label="Line">L</a>
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="YouTube">YT</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+const navCta = document.getElementById('navCta');
+const onScroll = () => {
+  const y = window.scrollY;
+  if(y > 24){ nav.classList.add('scrolled'); navCta.style.display='inline-flex'; }
+  else { nav.classList.remove('scrolled'); navCta.style.display='none'; }
+};
+onScroll();
+window.addEventListener('scroll', onScroll, {passive:true});
+
+const mb = document.getElementById('menuBtn');
+const mm = document.getElementById('mobileMenu');
+mb.addEventListener('click',()=>{ mb.classList.toggle('open'); mm.classList.toggle('open'); });
+mm.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=>{ mb.classList.remove('open'); mm.classList.remove('open'); }));
+
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+  });
+},{threshold:.1, rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
