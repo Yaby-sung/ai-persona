@@ -1,0 +1,79 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('articles', ({ data }) => !data.draft);
+  return posts.map((p) => ({ params: { slug: p.id }, props: { post: p } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+const site = Astro.site.href.replace(/\/$/, '');
+const url = `${site}/articles/${post.id}`;
+const fmt = (x) => x.toISOString().slice(0, 10).replace(/-/g, ' / ');
+
+const jsonld = [
+  {
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: d.title, description: d.description,
+    datePublished: d.pubDate.toISOString().slice(0, 10),
+    dateModified: (d.updated ?? d.pubDate).toISOString().slice(0, 10),
+    articleSection: d.category,
+    ...(d.cover ? { image: [`${site}${d.cover}`] } : {}),
+    author: { '@type': 'Organization', name: 'AI Persona' },
+    publisher: { '@type': 'Organization', name: 'AI Persona', logo: { '@type': 'ImageObject', url: `${site}/assets/logo.png` } },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+  },
+  ...(d.faq.length ? [{
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: d.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  }] : []),
+];
+---
+<Base title={`${d.title}｜AI Persona`} description={d.description} ogType="article" jsonld={jsonld} image={d.cover}>
+  <article class="post">
+    <header class="post-head">
+      <div class="wrap narrow">
+        <a class="crumb" href="/articles">← AI 商業觀察</a>
+        <div class="post-meta"><span class="cat">{d.category}</span><span class="date">{fmt(d.pubDate)}</span></div>
+        <h1>{d.title}</h1>
+        {d.subtitle && <p class="post-sub">{d.subtitle}</p>}
+        <p class="post-lede">{d.description}</p>
+      </div>
+    </header>
+
+    <figure class="post-cover">
+      {d.cover
+        ? <img src={d.cover} width="1600" height="1067" fetchpriority="high" decoding="async" alt={d.coverAlt ?? ''} />
+        : <span class="img-slot" data-name={d.coverSlot}><span>封面待補 · 橫式 3:2</span></span>}
+    </figure>
+
+    <div class="wrap narrow post-body">
+      <Content />
+    </div>
+
+    {d.faq.length > 0 && (
+      <section class="post-faq">
+        <div class="wrap narrow">
+          <div class="eyebrow">FAQ</div>
+          <h2>常見問題</h2>
+          <dl>{d.faq.map((f) => (<div class="qa"><dt>{f.q}</dt><dd>{f.a}</dd></div>))}</dl>
+        </div>
+      </section>
+    )}
+
+    <section class="post-cta">
+      <div class="wrap narrow">
+        <div class="eyebrow">Next Step</div>
+        <h2>想先看看自己現在的樣子？</h2>
+        <p>從免費的 AI Persona Mini Scan 開始，十題顯影出你的四個層次。</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://ai-persona-scan.vercel.app/" target="_blank" rel="noopener noreferrer">開始 Mini Scan →</a>
+          <a class="btn btn-ghost" href="https://lin.ee/wNiRx2R" target="_blank" rel="noopener noreferrer">從 LINE 聊聊</a>
+        </div>
+      </div>
+    </section>
+  </article>
+</Base>

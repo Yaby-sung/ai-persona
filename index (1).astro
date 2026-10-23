@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Manifesto from '../components/Manifesto.astro';
+import Services from '../components/Services.astro';
+import Cases from '../components/Cases.astro';
+import Journal from '../components/Journal.astro';
+import About from '../components/About.astro';
+import Invitation from '../components/Invitation.astro';
+
+const title = '小鹿 AI 商業落地實驗室 ｜ 讓你的專業，被世界重新看見';
+const description = '小鹿 AI 商業落地實驗室 — 用 AI、品牌策略與視覺導演，把你的價值翻譯成市場一秒就懂的語言。讓相信你，變成一件自然的事。';
+---
+<Base title={title} description={description}>
+  <section class="promo-carousel" aria-roledescription="carousel" aria-label="重點訊息輪播">
+    <div class="pc-track">
+
+      <a class="pc-slide is-on" href="/workshop"
+         aria-label="AI 全貌轉型工作坊 2026：看懂 AI 全貌，找到你的轉型起點。四小時實體工作坊，2026 年 11 月底開課">
+        <picture>
+          <source media="(max-width:768px)" srcset="/assets/home-workshop-banner-m.webp" width="1122" height="1402" />
+          <img src="/assets/home-workshop-banner.webp" width="1920" height="1080"
+               alt="AI TRANSFORMATION WORKSHOP 2026 海報：看懂 AI 全貌，找到你的轉型起點。四小時實體 AI 工作坊，課程六大重點，2026 年 11 月底即將開課。"
+               fetchpriority="high" decoding="async" />
+        </picture>
+      </a>
+
+      <div class="pc-slide">
+        <picture>
+          <source media="(max-width:768px)" srcset="/assets/hero-banner-m.webp" width="1122" height="1402" />
+          <img src="/assets/hero-banner.webp" width="1920" height="1080"
+               alt="她手持畫筆站在畫廊裡，腦波線連向身旁的 AI 人形；兩側牆上是同一張臉的兩種畫法。標語：找到原本的你 — 在 AI 時代，找回你的風格。"
+               decoding="async" />
+        </picture>
+      </div>
+
+    </div>
+    <div class="pc-dots" role="tablist" aria-label="輪播控制">
+      <button type="button" class="is-on" role="tab" aria-selected="true" aria-label="第 1 張：AI 全貌轉型工作坊"></button>
+      <button type="button" role="tab" aria-selected="false" aria-label="第 2 張：找到原本的你"></button>
+    </div>
+  </section>
+
+  <Hero />
+
+  <Manifesto /><Services /><Cases /><Journal /><About /><Invitation />
+</Base>

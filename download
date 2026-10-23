@@ -1,0 +1,16 @@
+node_modules
+dist
+.astro
+.vercel
+.DS_Store
+
+# 本機預覽與備份，不進版控
+preview
+backup-home-visuals-20261021
+
+# 素材原檔（單檔 2–3MB 的 PNG），原檔另存在 03_IP角色庫，不佔 repo 空間
+_素材原檔
+
+# 舊版獨立工作坊頁，已整併進 src/pages/workshop.astro
+# 留在本機不影響，但不能進 repo，否則部署時會蓋掉新的 /workshop
+public/workshop

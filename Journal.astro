@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+const posts = (await getCollection('articles', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+const fmt = (d) => d.toISOString().slice(0, 10).replace(/-/g, ' / ');
+---
+<section class="journal-sec" id="journal" style="padding-bottom:clamp(96px,14vw,180px)">
+  <div class="wrap" style="padding-top:clamp(96px,14vw,180px)">
+    <div class="sec-head reveal">
+      <div class="eyebrow">AI Business Field Notes</div>
+      <h2>AI 商業<em>觀察</em>。</h2>
+      <p class="lead">不是追 AI 熱潮——而是研究：<br>AI 如何真正改變品牌、成交與客戶關係。</p>
+    </div>
+
+    <div class="journal-grid">
+      {posts.map((p, i) => (
+        <a class={`journal reveal${i ? ' d' + i : ''}${p.data.cover ? ' has-thumb' : ''}`} href={`/articles/${p.id}`}>
+          {p.data.cover && (
+            <img class="journal-thumb" src={p.data.cover} loading="lazy" decoding="async"
+                 alt={p.data.coverAlt ?? ''} />
+          )}
+          <div class="journal-meta">
+            <span class="cat">{p.data.category}</span>
+            <span class="note-id">{fmt(p.data.pubDate)}</span>
+          </div>
+          <h4>{p.data.title}</h4>
+          <p>{p.data.description}</p>
+          <span class="more">閱讀全文 →</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="center" style="margin-top:clamp(44px,6vw,68px)">
+      <a href="/articles" class="btn btn-ghost">查看全部觀察 →</a>
+    </div>
+  </div>
+</section>

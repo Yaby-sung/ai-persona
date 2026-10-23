@@ -1,0 +1,453 @@
+---
+import Base from '../layouts/Base.astro';
+import '../styles/workshop.css';
+
+const title = 'AI 全貌轉型工作坊 ｜ 看懂 AI 全貌，找到你的轉型起點';
+const description =
+  '四小時實體小班工作坊：不再追著工具跑，而是看懂 AI 應用全貌、找到自己的第一步。預計 2026 年 11 月底開課，零基礎可參加，自備筆電。';
+
+const url = new URL('/workshop', Astro.site).href;
+
+const faqs = [
+  ['完全不會 AI，可以參加嗎？', '可以。課程從 AI 時代心態和應用全貌開始，不要求程式背景。課前會提供基本帳號準備清單。'],
+  ['需要帶什麼？', '請自備筆電與充電器。課前會通知建議使用的 AI 工具及帳號準備事項。'],
+  ['課程會教到自己做網站或自動客服嗎？', '會帶你理解網站、互動小程式與自動客服的應用架構，並示範案例；完整建置屬於後續進階課程。'],
+  ['已經在使用 ChatGPT，還適合嗎？', '如果你仍缺乏整體應用地圖、不知道如何與自己的專業及流程串接，非常適合。如果你已經能獨立設計並部署 AI 系統，建議選擇進階技術課。'],
+  ['日期、地點、費用確定了嗎？', '目前預計 2026 年 11 月底開課，日期、場地與正式費用尚待公告。你可以先透過頁面下方的方式表達興趣。'],
+];
+
+const jsonld = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: 'AI 全貌轉型工作坊',
+    url,
+    inLanguage: 'zh-Hant-TW',
+    description:
+      '四小時實體小班工作坊。從 AI 時代的心態開始，建立 AI 應用全貌地圖，找到自己的專業定位與第一個值得投入的應用方向，並完成一項個人實作成果與 30 天轉型起點藍圖。',
+    teaches: [
+      'AI 應用全貌地圖',
+      '個人專業定位與 AI 的接點',
+      '用 AI 產出可用的內容素材',
+      '網站、互動小程式與自動化的應用架構',
+      '30 天 AI 轉型起點藍圖',
+    ],
+    provider: {
+      '@type': 'Organization',
+      name: '彩鈺品牌顧問有限公司 ／ 小鹿 AI 商業落地實驗室',
+      url: Astro.site.href,
+    },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: 'Onsite',
+      courseWorkload: 'PT4H',
+      inLanguage: 'zh-Hant-TW',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(([q, a]) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a },
+    })),
+  },
+];
+---
+<Base title={title} description={description} jsonld={jsonld} image="/assets/workshop/og.jpg">
+<main class="ws">
+  <div class="w-vlabel" aria-hidden="true">AI PERSONA</div>
+
+  <nav class="ws-subnav" aria-label="工作坊頁面導覽">
+    <div class="w-wrap">
+      <span class="here">AI 全貌轉型工作坊</span>
+      <ul>
+        <li><a href="#steps">課程特色</a></li>
+        <li><a href="#creation">作品集</a></li>
+        <li><a href="#fit">適合誰</a></li>
+        <li><a href="#voices">學員見證</a></li>
+        <li><a href="#faq">常見問題</a></li>
+        <li><a class="sub-cta" href="#join">報名 ↗</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="w-hero2" aria-labelledby="hero-title">
+    <div class="w-hero2-media wh-car" aria-roledescription="carousel" aria-label="課程主視覺輪播">
+      <div class="wh-track">
+        <img class="w-shot w-slot-hero is-on" src="/assets/workshop/hero.webp" fetchpriority="high" alt="米娜與 AI 分身在工作室裡，桌上趴著 LUMI 獨角貓，四周是 AI 生成的作品" width="2400" height="1350" loading="eager" decoding="async" />
+        <img class="w-shot w-slot-hero" src="/assets/workshop/lesson-01.webp" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+        <img class="w-shot w-slot-hero" src="/assets/workshop/lesson-02.webp" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+        <img class="w-shot w-slot-hero" src="/assets/workshop/lesson-03.webp" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+        <img class="w-shot w-slot-hero" src="/assets/workshop/lesson-04.webp" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+        <img class="w-shot w-slot-hero" src="/assets/workshop/lesson-05.webp" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+        <img class="w-shot w-slot-hero" src="/assets/workshop/lesson-06.webp" alt="" width="1200" height="900" loading="lazy" decoding="async" />
+      </div>
+      <div class="wh-dots" role="tablist" aria-label="主視覺輪播控制">
+        <button type="button" class="is-on" role="tab" aria-selected="true" aria-label="主視覺"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="課程 01 AI 時代的正確心態與思維"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="課程 02 AI 工具與應用全貌"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="課程 03 找到自己的 WHO 與專業價值"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="課程 04 AI 圖文、影片與品牌內容創作"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="課程 05 AI 網站、小程式與品動化工作流"></button>
+        <button type="button" role="tab" aria-selected="false" aria-label="課程 06 建立自己的 AI 轉型行動藍圖"></button>
+      </div>
+    </div>
+    <div class="w-wrap">
+      <div class="w-hero2-copy">
+        <h1 id="hero-title">看懂 AI 全貌<br>找到你的<br><em>轉型起點</em>。</h1>
+        <p class="w-hero2-en">AI&nbsp;TRANSFORMATION<br>WORKSHOP&nbsp;2026</p>
+        <p class="w-hero2-lead">不再追著 AI 跑，而是讓 AI 開始為你所用。<br>AI 發展得越快，我們越需要知道自己的方向。</p>
+        <div><a class="w-pill" href="#join">搶先登記課程資訊 <span class="w-arrow">→</span></a></div>
+        <ul class="w-hero2-meta">
+          <li>4 小時實體工作坊</li><li>AI 初學者友善</li><li>自備筆電</li>
+        </ul>
+        <ul class="w-hero2-meta">
+          <li>2026 年 11 月底</li><li>日期與地點即將公布</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 01 QUESTION -->
+  <section class="w-num-sec" id="question" aria-labelledby="q-title">
+    <div class="w-wrap">
+      <div class="w-num-grid">
+        <div class="w-num-mark"><span class="w-num-no">01</span><span class="w-num-en">Question</span></div>
+        <div class="w-num-body">
+          <h2 id="q-title">你是不是也有這樣的感覺？</h2>
+          <p>每天都有新的 AI 工具、新功能、新技術。<br>
+             有人用 AI 寫文案，有人製作圖片與影片，有人已經開始建立網站、自動化工作流，甚至自己的 AI 系統。同樣都在談 AI，大家理解的世界卻可能完全不同。</p>
+          <ul class="w-ticks">
+            <li>收藏了很多提示詞，真正使用的卻很少。</li>
+            <li>看了很多教學影片，還是不知道從哪裡開始。</li>
+            <li>學會幾個 AI 工具，卻不知道怎麼整合進自己的工作。</li>
+            <li>看見別人用 AI 做出各種成果，開始擔心自己是不是跟不上。</li>
+            <li>知道 AI 很重要，卻說不清楚它究竟能為自己帶來什麼。</li>
+          </ul>
+          <p class="w-punch">也許你缺的不是更多 AI 工具，而是一張看懂 AI 全貌的地圖。</p>
+        </div>
+        <div class="w-num-media"><img class="w-shot w-slot-arch" src="/assets/workshop/s01.webp" alt="米娜在筆電前托腮，四周浮著大量 AI 生成的圖像面板" width="1200" height="1200" loading="lazy" decoding="async" /></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 02 MINDSET -->
+  <section class="w-num-sec w-tint" id="mindset" aria-labelledby="m-title">
+    <div class="w-wrap">
+      <div class="w-num-grid">
+        <div class="w-num-mark"><span class="w-num-no">02</span><span class="w-num-en">Mindset</span></div>
+        <div class="w-num-body">
+          <h2 id="m-title">在 AI 時代，<br>先穩住自己的腳步。</h2>
+          <p>你不需要學會所有 AI 工具，也不需要用別人的進度，來衡量自己是否跟上時代。<br>
+             工具會不斷更新，但真正值得持續累積的，是你的專業、判斷力、創造力，以及看見問題和解決問題的能力。</p>
+          <blockquote class="w-ask">
+            哪些事情可以交給 AI？哪些能力應該持續培養？<br>
+            哪些體驗與選擇，仍然值得自己親自完成？
+          </blockquote>
+          <p class="w-punch">AI 可以加速你的腳步，但方向，還是由你決定。</p>
+        </div>
+        <div class="w-num-media"><img class="w-shot w-slot-wide" src="/assets/workshop/s02.webp" alt="米娜背對鏡頭席地而坐，望向遠方山景，AI 分身與 LUMI 在兩側" width="1800" height="1200" loading="lazy" decoding="async" /></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 03 THREE STEPS -->
+  <section class="w-num-sec" id="steps" aria-labelledby="s-title">
+    <div class="w-wrap">
+      <img class="w-banner" src="/assets/workshop/steps-banner.webp"
+           alt="一條發光的路徑穿過山谷，沿途停靠筆電、影像、剪輯與網站等節點，終點是山頂的城堡"
+           width="1672" height="941" loading="lazy" decoding="async" />
+      <div class="w-num-mark w-num-mark-row"><span class="w-num-no">03</span><span class="w-num-en">Three steps</span>
+        <h2 id="s-title">這四小時，我們一起完成三件事。</h2></div>
+      <div class="w-steps3">
+        <article>
+          <span class="w-step-ico" aria-hidden="true">◉</span>
+          <p class="w-step-ttl"><em>See</em> <span>看見</span></p>
+          <h3>看懂 AI 的全貌</h3>
+          <p>從 AI 模型、智慧助理、文字、圖片、影片生成，到網站、小程式、自動化工作流與 AI Agent，建立完整的 AI 應用地圖。</p>
+        </article>
+        <article>
+          <span class="w-step-ico" aria-hidden="true">✦</span>
+          <p class="w-step-ttl"><em>Imagine</em> <span>想像</span></p>
+          <h3>重新看見自己的可能性</h3>
+          <p>回到你自己，探索你的 WHO、專業、價值與需求，打開 AI 如何放大原本能力的想像。</p>
+        </article>
+        <article>
+          <span class="w-step-ico" aria-hidden="true">▷</span>
+          <p class="w-step-ttl"><em>Begin</em> <span>開始</span></p>
+          <h3>打造自己的 AI 轉型起點</h3>
+          <p>從理解到實際操作，讓 AI 協助你整理定位、製作內容、探索數位應用，並找到最值得優先執行的第一個專案。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 04 CURRICULUM -->
+  <section class="w-num-sec w-tint" id="curriculum" aria-labelledby="c-title">
+    <div class="w-wrap">
+      <div class="w-cur-head">
+        <div class="w-num-mark w-num-mark-row"><span class="w-num-no">04</span><span class="w-num-en">Curriculum</span>
+          <h2 id="c-title">課程內容</h2></div>
+        <p class="w-cur-note">4 小時完整規劃，從認知到實作</p>
+      </div>
+      <ol class="w-cur-rail" aria-hidden="true">
+        <li>01</li><li>02</li><li>03</li><li>04</li><li>05</li><li>06</li>
+      </ol>
+      <div class="w-cur-grid">
+        <article class="w-cur-card">
+          <img class="w-shot w-slot-card" src="/assets/workshop/lesson-01.webp" alt="米娜在筆電前沉思，LUMI 趴在桌上" width="1200" height="900" loading="lazy" decoding="async" />
+          <h3>AI 時代的正確心態</h3>
+          <p>不焦慮、不盲從，<br>建立自己的學習節奏。</p>
+        </article>
+        <article class="w-cur-card">
+          <img class="w-shot w-slot-card" src="/assets/workshop/lesson-02.webp" alt="米娜與 AI 分身隔著鏡面對望，四周是各種 AI 應用畫面" width="1200" height="900" loading="lazy" decoding="async" />
+          <h3>看懂 AI 的完整世界</h3>
+          <p>原來 AI 不只是<br>ChatGPT。</p>
+        </article>
+        <article class="w-cur-card">
+          <img class="w-shot w-slot-card" src="/assets/workshop/lesson-03.webp" alt="米娜正面特寫，AI 分身在身後" width="1200" height="900" loading="lazy" decoding="async" />
+          <h3>找到自己的 WHO</h3>
+          <p>從認識自己開始，<br>找到值得放大的價值。</p>
+        </article>
+        <article class="w-cur-card">
+          <img class="w-shot w-slot-card" src="/assets/workshop/lesson-04.webp" alt="米娜用觸控筆在平板上創作，桌上放著相機" width="1200" height="900" loading="lazy" decoding="async" />
+          <h3>AI 內容創作實戰</h3>
+          <p>把想法轉換成<br>能被看見的內容。</p>
+        </article>
+        <article class="w-cur-card">
+          <img class="w-shot w-slot-card" src="/assets/workshop/lesson-05.webp" alt="米娜一邊繪圖，四周浮著已完成的作品" width="1200" height="900" loading="lazy" decoding="async" />
+          <h3>從內容走向數位資產</h3>
+          <p>建立自己的網站<br>與工作流程。</p>
+        </article>
+        <article class="w-cur-card">
+          <img class="w-shot w-slot-card" src="/assets/workshop/lesson-06.webp" alt="米娜在筆記本上手寫規劃下一步" width="1200" height="900" loading="lazy" decoding="async" />
+          <h3>我的 AI 轉型藍圖</h3>
+          <p>找到最適合自己的<br>第一步。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 05 RESULT -->
+  <section class="w-num-sec" id="result" aria-labelledby="r-title">
+    <div class="w-wrap">
+      <div class="w-num-mark w-num-mark-row"><span class="w-num-no">05</span><span class="w-num-en">Result</span>
+        <h2 id="r-title">這堂課，你將帶走什麼？</h2></div>
+      <div class="w-results">
+        <article><span class="w-res-ico" aria-hidden="true">▤</span><h3>一張 AI 全貌地圖</h3>
+          <p>了解 AI 的不同能力層級，以及它們與工作、生活和商業應用之間的關係。</p></article>
+        <article><span class="w-res-ico" aria-hidden="true">◯</span><h3>一份個人價值與方向探索</h3>
+          <p>釐清自己的優勢、需求，以及適合優先嘗試的 AI 應用方式。</p></article>
+        <article><span class="w-res-ico" aria-hidden="true">▣</span><h3>一項現場 AI 實作成果</h3>
+          <p>透過引導練習，完成一份與自己有關的內容素材或初步應用成果。</p></article>
+        <article><span class="w-res-ico" aria-hidden="true">➤</span><h3>一份 30 天 AI 轉型行動藍圖</h3>
+          <p>不再只是收藏知識，而是能夠開始執行。</p></article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 06 CREATION -->
+  <section class="w-num-sec w-tint" id="creation" aria-labelledby="cr-title">
+    <div class="w-wrap">
+      <div class="w-cre-grid">
+        <div class="w-cre-copy">
+          <div class="w-num-mark"><span class="w-num-no">06</span><span class="w-num-en">Creation</span></div>
+          <h2 id="cr-title">從想像，到實現</h2>
+          <p class="w-cre-sub">看看 AI 還能做到什麼？</p>
+          <p>AI 可以協助的不只是文字生成。<br>
+             從虛擬角色設計、創意短影音，到互動網站與自動化系統，<br>
+             都可以從一個想法逐步發展。</p>
+          <div><a class="w-pill" href="/#cases">探索 AI 應用作品 <span class="w-arrow">→</span></a></div>
+        </div>
+        <div class="w-cre-cards">
+          <figure class="w-cre-card">
+            <img class="w-shot w-slot-tall" src="/assets/workshop/work-persona.webp" alt="AI Persona：米娜的角色定裝" width="900" height="1200" loading="lazy" decoding="async" />
+            <figcaption><strong>AI Persona</strong><span>數位角色與品牌 IP</span></figcaption>
+          </figure>
+          <figure class="w-cre-card">
+            <img class="w-shot w-slot-tall" src="/assets/workshop/work-creative.webp" alt="AI Creative：LUMI 獨角貓" width="900" height="1200" loading="lazy" decoding="async" />
+            <figcaption><strong>AI Creative</strong><span>創意影像與內容</span></figcaption>
+          </figure>
+          <figure class="w-cre-card">
+            <img class="w-shot w-slot-tall" src="/assets/workshop/work-digital.webp" alt="AI Digital：桌機、平板與手機上的網站畫面" width="900" height="1200" loading="lazy" decoding="async" />
+            <figcaption><strong>AI Digital</strong><span>網站與互動體驗</span></figcaption>
+          </figure>
+          <figure class="w-cre-card">
+            <img class="w-shot w-slot-tall" src="/assets/workshop/work-workflow.webp" alt="AI Workflow：米娜與多個裝置上的工作流畫面" width="900" height="1200" loading="lazy" decoding="async" />
+            <figcaption><strong>AI Workflow</strong><span>工作流與商業應用</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="instructor" class="w-outline" aria-labelledby="inst-title">
+    <div class="w-orb" style="top:-100px;right:10%"></div>
+    <div class="w-wrap">
+      <div class="w-inst-grid">
+        <img class="w-portrait w-shot" src="/assets/workshop/instructor.webp"
+             alt="講師宋穎嘉：品牌整合顧問 × AI 商業應用實踐者"
+             width="1200" height="1500" loading="lazy" decoding="async" />
+        <div class="w-inst-copy">
+          <p class="w-eyebrow">About the instructor</p>
+          <p class="w-role" style="font-size:15px;letter-spacing:.16em">從品牌策略　走向 AI 商業落地</p>
+          <h2 id="inst-title">工具會變，<br>專業與價值才是起點。</h2>
+          <p class="w-role">彩鈺品牌顧問創辦人／品牌整合顧問 × AI 商業應用實踐者</p>
+          <p>具約 20 年廣告與品牌行銷經驗，從品牌策略、創意企劃到商業整合，並將實務經驗延伸至 AI Persona、AI 影像內容、網站原型與工作流應用。</p>
+          <p class="w-belief">相信 AI 不只是為了更快完成工作，而是幫助每個人找到自己的位置、放大原本的價值。</p>
+          <div><a class="w-pill w-ghostbtn" href="/">了解品牌與理念 <span class="w-arrow">→</span></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 學員見證 -->
+  <!-- 07 FIT -->
+  <section class="w-num-sec w-tint" id="fit" aria-labelledby="fit-title">
+    <div class="w-wrap">
+      <div class="w-num-mark w-num-mark-row"><span class="w-num-no">07</span><span class="w-num-en">Is this for you?</span>
+        <h2 id="fit-title">不需要先懂 AI，只需要願意探索。</h2></div>
+      <div class="w-fit-grid">
+        <div class="w-fit w-yes">
+          <h3>這堂課很適合你，如果你……</h3>
+          <ul>
+            <li>想開始 AI 轉型，卻不知道從何下手</li>
+            <li>玩過 AI 工具，卻沒有形成自己的工作方法</li>
+            <li>擁有專業，想把經驗轉成品牌內容與數位資產</li>
+            <li>對 AI 能做什麼還沒有想像，但願意嘗試</li>
+            <li>想從收藏教學，真正跨出實作的一步</li>
+          </ul>
+        </div>
+        <div class="w-fit w-no">
+          <h3>這堂課可能不適合你，如果你……</h3>
+          <ul>
+            <li>已能獨立建立 AI 工作流／Agent，只尋求深入技術課</li>
+            <li>只想大量收集提示詞與工具清單</li>
+            <li>期待四小時內精通影片、網站與自動化開發</li>
+            <li>完全不願意接觸、理解或嘗試 AI</li>
+            <li>不願思考個人需求，只想照抄一份標準答案</li>
+          </ul>
+        </div>
+      </div>
+      <p class="w-punch w-fit-closing">沒有想像力不是門檻。<br>我們正是希望，透過看見 AI 的可能性，幫你打開對未來的想像。</p>
+    </div>
+  </section>
+
+  <!-- 08 VOICES -->
+  <section class="w-num-sec" id="voices" aria-labelledby="v-title">
+    <div class="w-wrap">
+      <div class="w-num-mark w-num-mark-row"><span class="w-num-no">08</span><span class="w-num-en">Voices</span>
+        <h2 id="v-title">學員見證</h2></div>
+      <p class="w-voices-empty">第一屆工作坊尚未開課，這裡會在課後放上真實學員的回饋。<br>
+        我們不會放沒有發生過的評價。</p>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="w-ghost w-num" aria-hidden="true" style="top:30px;right:-10px">FAQ</div>
+    <div class="w-wrap">
+      <div class="w-sec-head">
+        <p class="w-eyebrow">FAQ</p>
+        <h2 id="faq-title">常見問題</h2>
+      </div>
+      <div class="w-faq-list">
+        <details open><summary><span class="w-q">Q1</span><span>完全不會 AI，可以參加嗎？</span><span class="w-plus" aria-hidden="true">+</span></summary><p class="w-a">可以。課程從 AI 時代心態和應用全貌開始，不要求程式背景。課前會提供基本帳號準備清單。</p></details>
+        <details><summary><span class="w-q">Q2</span><span>需要帶什麼？</span><span class="w-plus" aria-hidden="true">+</span></summary><p class="w-a">請自備筆電與充電器。課前會通知建議使用的 AI 工具及帳號準備事項。</p></details>
+        <details><summary><span class="w-q">Q3</span><span>課程會教到自己做網站或自動客服嗎？</span><span class="w-plus" aria-hidden="true">+</span></summary><p class="w-a">會帶你理解網站、互動小程式與自動客服的應用架構，並示範案例；完整建置屬於後續進階課程。</p></details>
+        <details><summary><span class="w-q">Q4</span><span>已經在使用 ChatGPT，還適合嗎？</span><span class="w-plus" aria-hidden="true">+</span></summary><p class="w-a">如果你仍缺乏整體應用地圖、不知道如何與自己的專業及流程串接，非常適合。如果你已經能獨立設計並部署 AI 系統，建議選擇進階技術課。</p></details>
+        <details><summary><span class="w-q">Q5</span><span>日期、地點、費用確定了嗎？</span><span class="w-plus" aria-hidden="true">+</span></summary><p class="w-a">目前預計 2026 年 11 月底開課，日期、場地與正式費用尚待公告。你可以先透過下方方式表達興趣。</p></details>
+      </div>
+    </div>
+  </section>
+  <section class="w-finale" id="join" aria-labelledby="join-title">
+    <div class="w-orb" style="top:-140px;left:50%;transform:translateX(-50%)"></div>
+    <div class="w-ghost" aria-hidden="true" style="bottom:-50px;left:50%;transform:translateX(-50%)">起點</div>
+    <div class="w-wrap">
+      <div class="w-inner">
+        <p class="w-eyebrow">Start from you</p>
+        <h2 id="join-title">AI 可以加速你的腳步，<br>方向，<em>仍由你決定</em>。</h2>
+        <p class="w-meta">預計 2026 年 11 月底開課｜實體小班工作坊</p>
+        <p>想了解第一波開課消息？請透過你看到本頁的社群貼文留言<span class="w-keyword">AI全貌</span>，或私訊主辦人索取最新資訊。</p>
+        <button class="w-pill" id="copy-btn" type="button">複製詢問訊息 <span class="w-arrow">→</span></button>
+        <p class="w-toast" id="toast" role="status" aria-live="polite"></p>
+        <p class="w-fine">正式報名表單與付款方式尚未開放；此按鈕不會送出個人資料。</p>
+      </div>
+    </div>
+  </section>
+</main>
+</Base>
+
+<script is:inline>
+(function(){
+  var btn=document.getElementById('copy-btn'),toast=document.getElementById('toast');
+  if(!btn||!toast)return;
+  var msg='AI全貌';
+  function done(t){toast.textContent=t;clearTimeout(done._t);done._t=setTimeout(function(){toast.textContent=''},3200)}
+  function fallback(){
+    var kw=document.querySelector('.w-finale .w-keyword');
+    try{var r=document.createRange();r.selectNodeContents(kw);var s=getSelection();s.removeAllRanges();s.addRange(r)}catch(e){}
+    done('已選取「AI全貌」，請長按或按 Ctrl+C 複製');
+  }
+  btn.addEventListener('click',function(){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(msg).then(function(){done('已複製「AI全貌」，貼到留言或私訊就可以了')},fallback);
+    }else fallback();
+  });
+})();
+</script>
+
+<script is:inline>
+/* 工作坊 HERO 主視覺輪播 */
+(function(){
+  var car = document.querySelector('.w-hero2-media.wh-car');
+  if (!car) return;
+  var slides = [].slice.call(car.querySelectorAll('.wh-track .w-shot'));
+  var dots   = [].slice.call(car.querySelectorAll('.wh-dots button'));
+  if (slides.length < 2) return;
+  var i = 0, timer = null;
+  var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  function go(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(s,k){ s.classList.toggle('is-on', k === i); });
+    dots.forEach(function(d,k){
+      d.classList.toggle('is-on', k === i);
+      d.setAttribute('aria-selected', k === i ? 'true' : 'false');
+    });
+  }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  function play(){ stop(); if (!reduce) timer = setInterval(function(){ go(i+1); }, 5500); }
+
+  dots.forEach(function(d,k){ d.addEventListener('click', function(){ go(k); play(); }); });
+  /* 只有滑到點點或鍵盤聚焦才暫停，整張主視覺不暫停 */
+  var box = car.querySelector('.wh-dots');
+  if (box){ box.addEventListener('mouseenter', stop); box.addEventListener('mouseleave', play); }
+  car.addEventListener('focusin', stop);
+  car.addEventListener('focusout', play);
+
+  /* 手機滑動切換 */
+  var x0 = null;
+  car.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; stop(); }, {passive:true});
+  car.addEventListener('touchend', function(e){
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 45) go(dx < 0 ? i+1 : i-1);
+    x0 = null; play();
+  }, {passive:true});
+
+  /* 分頁切走時停掉，省電也避免回來時連跳好幾張 */
+  document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : play(); });
+
+  go(0); play();
+})();
+</script>

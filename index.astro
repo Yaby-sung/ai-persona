@@ -1,0 +1,69 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('articles', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const ORDER = ['AI Persona 基礎', '個人品牌定位', 'AI 視覺與角色宇宙', 'AI 客戶理解', '案例觀察'];
+const used = ORDER.filter((c) => posts.some((p) => p.data.category === c));
+const fmt = (d) => d.toISOString().slice(0, 10).replace(/-/g, ' / ');
+---
+<Base
+  title="AI 商業觀察 ｜ AI Persona 知識庫"
+  description="AI 如何真正改變品牌、成交與客戶關係。個人品牌定位、AI 視覺與角色宇宙、客戶理解系統的第一手觀察與方法。">
+  <header class="page-head">
+    <div class="wrap">
+      <div class="eyebrow">AI Business Field Notes</div>
+      <h1>AI 商業<em class="g">觀察</em>。</h1>
+      <p class="lead">不是追 AI 熱潮——而是研究：AI 如何真正改變品牌、成交與客戶關係。</p>
+    </div>
+  </header>
+
+  <section class="list-sec">
+    <div class="wrap">
+      <div class="filters" id="filters">
+        <button class="chip is-on" data-cat="all">全部<span>{posts.length}</span></button>
+        {used.map((c) => (
+          <button class="chip" data-cat={c}>{c}<span>{posts.filter((p) => p.data.category === c).length}</span></button>
+        ))}
+      </div>
+
+      <div class="list-grid" id="list">
+        {posts.map((p) => (
+          <a class="card has-cover" href={`/articles/${p.id}`} data-cat={p.data.category}>
+            {p.data.cover
+              ? <img class="card-thumb" src={p.data.cover} loading="lazy" decoding="async" alt={p.data.coverAlt ?? ''} />
+              : <span class="card-thumb card-thumb-slot">封面待補</span>}
+            <div class="card-meta"><span class="cat">{p.data.category}</span><span class="date">{fmt(p.data.pubDate)}</span></div>
+            <h2>{p.data.title}</h2>
+            {p.data.subtitle && <p class="card-sub">{p.data.subtitle}</p>}
+            <p class="card-desc">{p.data.description}</p>
+            <span class="more">閱讀全文 →</span>
+          </a>
+        ))}
+      </div>
+
+      <p class="list-empty" id="empty" hidden>這個分類還沒有文章。</p>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var chips = document.querySelectorAll('#filters .chip');
+      var cards = document.querySelectorAll('#list .card');
+      var empty = document.getElementById('empty');
+      chips.forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chips.forEach(function (c) { c.classList.remove('is-on'); });
+          chip.classList.add('is-on');
+          var cat = chip.dataset.cat, shown = 0;
+          cards.forEach(function (card) {
+            var ok = cat === 'all' || card.dataset.cat === cat;
+            card.hidden = !ok; if (ok) shown++;
+          });
+          empty.hidden = shown > 0;
+        });
+      });
+    })();
+  </script>
+</Base>
